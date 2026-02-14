@@ -1,32 +1,47 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Themeable header logo using uploaded logo.svg (primary brand color)",
+  "title": "Adjust header logo rendering for mobile menu and brand color",
   "requirements": [
     {
-      "id": "REQ-54",
-      "summary": "Update the header logo to use the uploaded logo.svg via a canonical asset path and render in primary brand color using a themeable currentColor/text-primary approach across breakpoints.",
+      "id": "REQ-65",
+      "summary": "Remove any logo rendering from the opened mobile navigation panel while keeping the header logo unchanged and clickable.",
       "acceptanceCriteria": [
-        "On all breakpoints, the header logo renders visually (no alt-text-only rendering) and links to `/`.",
-        "The header logo color is exactly the primary brand color (#2E0527) in normal/light mode.",
-        "The solution uses a themeable approach (e.g., `currentColor` / `text-primary` or equivalent) rather than an inline `color` style on an `<img>` element.",
-        "Only one canonical logo asset path is used by the header logo implementation, and it resolves without 404s in the deployed build."
+        "On mobile, opening the hamburger menu does not show any logo within the menu panel (no top bar logo, no duplicate logo).",
+        "The site header (top bar) still displays the logo and remains clickable to navigate to Home.",
+        "Desktop header continues to display the logo as before."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/layout/HeaderNav.tsx",
+          "operation": "modify",
+          "description": "Remove the mobile menu top section that renders the UtthanLogo inside the opened mobile navigation panel, and remove any now-unused mobile-logo click handler logic; keep the existing header <Link> logo unchanged so it remains clickable to Home."
+        }
+      ]
+    },
+    {
+      "id": "REQ-66",
+      "summary": "Recolor the header logo to exactly #70316c everywhere it appears in the header, while continuing to use the same /assets/logo.svg asset.",
+      "acceptanceCriteria": [
+        "The rendered logo color in the header matches exactly #70316c (visually and via computed styles where applicable).",
+        "No other UI elements are unintentionally recolored when applying the logo color.",
+        "The logo continues to render as a graphic (not alt text) and uses the same logo.svg asset path consistently."
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/branding/UtthanLogo.tsx",
           "operation": "modify",
-          "description": "Refactor UtthanLogo to render the uploaded logo.svg as a themeable graphic using currentColor (e.g., via the existing CSS mask approach) instead of a plain <img>, and ensure it supports applying `text-primary` for the exact #2E0527 color in light mode."
-        },
-        {
-          "path": "frontend/src/components/layout/HeaderNav.tsx",
-          "operation": "modify",
-          "description": "Replace the inline-styled <img> logo with the UtthanLogo component, ensure the logo link navigates to `/`, and apply `text-primary` (and responsive sizing) so the logo is correctly colored and visible on both desktop and mobile; remove any inline `style={{ color: ... }}` usage."
+          "description": "Update UtthanLogo to render the existing /assets/logo.svg as a graphic with a fixed brand color of #70316c (e.g., via a dedicated logo styling approach that tints only the logo and does not affect other UI), ensuring the same asset path is used consistently."
         },
         {
           "path": "frontend/src/index.css",
           "operation": "modify",
-          "description": "Update the `.logo-themed` utility to use a single canonical logo asset path (aligning with the header logo implementation), ensuring it points to the uploaded `logo.svg` and remains themeable via `background-color: currentColor`."
+          "description": "Add a narrowly-scoped CSS utility/class (used only by UtthanLogo) that applies the #70316c color to the logo rendering while referencing the existing frontend/public assets path for logo.svg, ensuring no global element color rules are changed."
+        },
+        {
+          "path": "frontend/src/components/layout/HeaderNav.tsx",
+          "operation": "modify",
+          "description": "If the UtthanLogo implementation changes away from a plain <img>, adjust the logo sizing classes passed in the header so the logo remains visually consistent across desktop header and mobile header top bar while keeping the logo color #70316c and avoiding layout redesign."
         }
       ]
     }

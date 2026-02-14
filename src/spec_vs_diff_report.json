@@ -1,18 +1,20 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-14T14:41:09.799Z",
-  "summary": "REQ-54 appears implemented by introducing a themeable logo component (CSS mask using /assets/logo.svg with currentColor) and wiring it into the header link to '/'. The diff also includes broader brand palette changes in index.css that go beyond the header logo requirement.",
-  "missing_requirements": [],
-  "hallucinated_features": [
+  "generatedAt": "2026-02-14T17:42:41.410Z",
+  "summary": "REQ-65 appears implemented: the mobile navigation panel no longer renders any logo, while the header still shows a clickable logo linking to Home. REQ-66 is not clearly satisfied because the logo color is applied via a CSS filter on an <img> (logo.svg), which does not guarantee an exact #70316c color in computed styles.",
+  "missing_requirements": [
     {
-      "description": "Broad update/replacement of the site-wide brand palette CSS variables (primary/secondary/accent/muted/background/etc. and dark mode variants), beyond what is strictly required to update the header logo to use logo.svg and render in the primary brand color.",
-      "reason": "BuildRequest is narrowly scoped to updating the header logo behavior/color/path consistency; it does not request a full palette overhaul.",
+      "id": "REQ-66",
+      "requirement": "Ensure the header logo is colored exactly #70316c everywhere it appears in the header (desktop header and mobile header top bar), using the same uploaded logo.svg asset.",
+      "reason": "The diff applies a CSS `filter` (`.utthan-logo-brand`) to an `<img src=\"/assets/logo.svg\">`. Filters can visually approximate a target color but generally do not make the rendered graphic's color computably equal to an exact hex value (#70316c), and may vary by browser/rendering. No evidence of editing the SVG to use #70316c or using an inline SVG with `fill`/`stroke` set to #70316c.",
       "evidence": [
+        "frontend/src/components/branding/UtthanLogo.tsx",
         "frontend/src/index.css"
       ]
     }
   ],
+  "hallucinated_features": [],
   "confidence": 0.74,
   "changed_files": [
     "frontend-file-summaries.txt",

@@ -69,26 +69,20 @@
     --input: 0.30 0.02 330;
     --ring: 0.52 0.12 330;
     
-    --success: 0.65 0.15 145;
+    --success: 0.70 0.15 145;
     --success-foreground: 0.15 0.08 145;
     
-    --warning: 0.75 0.15 85;
-    --warning-foreground: 0.25 0.08 85;
+    --warning: 0.80 0.15 85;
+    --warning-foreground: 0.20 0.08 85;
     
     --destructive: 0.60 0.22 25;
     --destructive-foreground: 0.98 0.01 25;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
-  
-  html {
-    @apply bg-background text-foreground;
-  }
-  
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
@@ -96,28 +90,45 @@
 }
 
 @layer utilities {
-  .card-hover {
-    @apply transition-all duration-300;
-  }
-  
+  /* Animation utilities */
   .btn-hover {
-    @apply transition-all duration-200 hover:scale-105;
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
   }
-  
+
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-xl;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Mobile safe area utilities */
   .mobile-safe-bottom {
     padding-bottom: env(safe-area-inset-bottom);
   }
-  
-  /* Logo theming utility using CSS mask for SVG coloring */
-  .logo-themed {
-    -webkit-mask-image: url('/assets/logo.svg');
-    mask-image: url('/assets/logo.svg');
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-    background-color: currentColor;
+
+  /* Safe word breaking for long strings */
+  .break-word {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  /* Logo brand color utility - applies exact brand color #70316c */
+  .utthan-logo-brand {
+    filter: brightness(0) saturate(100%) invert(17%) sepia(47%) saturate(2345%) hue-rotate(290deg) brightness(85%) contrast(95%);
   }
 }

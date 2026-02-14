@@ -12,7 +12,6 @@ export default function HeaderNav() {
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About' },
     { to: '/services', label: 'Services' },
-    { to: '/team', label: 'Our Team' },
     { to: '/testimonials', label: 'Testimonials' },
     { to: '/faq', label: 'FAQ' },
     { to: '/contact', label: 'Contact' },
@@ -22,7 +21,7 @@ export default function HeaderNav() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <nav className="container flex h-16 items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2 text-primary">
+        <Link to="/" className="flex items-center space-x-2">
           <UtthanLogo className="h-10 w-auto" />
         </Link>
 

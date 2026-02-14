@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 33,
-  "summary": "Homepage redesign aligned to the provided Pinterest reference template while enforcing the clinic’s strict brand palette, plus review fixes: hero readability/contrast, replace header logo with the user-provided SVG (fix current issue where only alt text shows), replace hero image with exactly https://utthan.vercel.app/assets/images/back_pain.png with background removed, fix missing service images by generating unique real physiotherapy photos per service and placing them on all service cards, update hero headline typography (slightly lighter weight + tighter letter spacing), display 4.9 rating from 147 Google reviews, update Reviews/Testimonial content to only 5-star positive detailed reviews from the provided Google Business profile link, embed Google Map iframe in Contact section, remove Facebook icon, correct Instagram handle link, update Sunday hours only, and add/update the Home \"Who we are\" section placed before \"What Our Patients Say\" using the user-provided copy (signed by Dr. Roshani Mansuriya) and image https://utthan.vercel.app/assets/images/dr-banner.jpg; ensure logo.svg renders in primary color #2E0527 across header (desktop + mobile).",
+  "projectStateVersion": 45,
+  "summary": "Homepage redesign aligned to the provided Pinterest reference template while enforcing the clinic’s strict brand palette, plus review fixes: hero readability/contrast, replace header logo with the user-provided SVG (fix current issue where only alt text shows), replace hero image with exactly https://utthan.vercel.app/assets/images/back_pain.png with background removed, fix missing service images by generating unique real physiotherapy photos per service and placing them on all service cards, update hero headline typography (slightly lighter weight + tighter letter spacing), display 4.9 rating from 147 Google reviews, update Reviews/Testimonial content to only 5-star positive detailed reviews from the provided Google Business profile link, embed Google Map iframe in Contact section, remove Facebook icon, correct Instagram handle link, update Sunday hours only, and add/update the Home \"Who we are\" section placed before \"What Our Patients Say\" using the user-provided copy (signed by Dr. Roshani Mansuriya) and image https://utthan.vercel.app/assets/images/dr-banner.jpg; ensure logo.svg renders with logo color set to #70316c across header (desktop + mobile), and remove the logo from the mobile menu (logo should appear only in the header). Additionally: remove the Therapist Profiles/Team page entirely (and remove its navigation link), and update the About page \"Our Story\" section image to use the uploaded unnamed.webp.",
   "architectural_notes": [
     "No backend email delivery: use mailto: email button instead of contact form notifications/newsletter emailing.",
     "Content/assets sourced from existing site and Google Business listing; ensure proper attribution/usage rights for photos.",
@@ -12,7 +12,7 @@
     "Use updated Google Business share links provided in chat (e.g., https://share.google/50bs8HW3fbEUmyOcc and https://share.google/RJAljVXB4WTdwxAC3) to gather accurate business info/photos in addition to utthan.vercel.app.",
     "Canonical clinic contact details to use everywhere: utthan.health@gmail.com; phone 82000 84101; address: 209, Kashi Plaza, Kamrej Char-rasta, Surat - 394180.",
     "Homepage/hero stat counters must be: 5+ years of experience, 10+ hospitals partnered, 700+ happy patients.",
-    "Landing page hero should use a spine image as the primary main hero visual; use a mix of real photos and illustrations where appropriate, aiming for SEO + user-friendly layout."
+    "Header logo color override updated: header logo.svg should render in custom color #70316c (exception to the standard brand palette)."
   ],
   "known_issues": [
     "Brand palette not correctly applied in current build (colors differ from provided hex values).",
@@ -459,6 +459,102 @@
         "REQ-54"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-the-site-header-logo-so-it-renders-in-the-exact-custom-color-70306c-instead-of-the-theme-primary-secondary-while-keeping-the-logo-as-the-existing-themed-masked-svg-implementation-i-e-it-should-still-render-as-an-actual-graphic-not-alt-text-on-both-desktop-and-mobile",
+      "title": "Update the site header logo so it renders in the exact custom color #70306c (instead of the theme primary/secondary), while keeping the logo as the existing themed/masked SVG implementation (i.e., it should still render as an actual graphic, not alt text) on both desktop and mobile.",
+      "reqIds": [
+        "REQ-55"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-therapist-profiles-team-page-entirely-by-deleting-the-team-route-from-the-router-and-ensure-the-therapists-team-page-is-no-longer-reachable-in-the-app",
+      "title": "Remove the Therapist Profiles / Team page entirely by deleting the `/team` route from the router, and ensure the Therapists/Team page is no longer reachable in the app.",
+      "reqIds": [
+        "REQ-56"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-all-navigation-and-footer-links-that-point-to-the-team-page-team-so-the-our-team-entry-is-not-shown-anywhere-in-the-ui",
+      "title": "Remove all navigation and footer links that point to the Team page (`/team`) so the ‘Our Team’ entry is not shown anywhere in the UI.",
+      "reqIds": [
+        "REQ-57"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-uploaded-image-unnamed-webp-as-a-static-frontend-asset-and-replace-the-about-page-our-story-section-image-with-this-uploaded-image-replacing-the-current-assets-image-1-png-reference",
+      "title": "Add the uploaded image `unnamed.webp` as a static frontend asset and replace the About page ‘Our Story’ section image with this uploaded image (replacing the current `/assets/image-1.png` reference).",
+      "reqIds": [
+        "REQ-58"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-css-layout-in-the-what-our-patients-say-testimonials-section-so-it-does-not-cause-horizontal-scrolling-on-mobile-while-keeping-the-current-layout-and-structure-grid-cards-unchanged-ensure-review-card-content-especially-long-review-text-strings-wraps-correctly-within-the-card-container-and-cannot-force-the-page-to-overflow-horizontally-on-small-screens",
+      "title": "Fix the CSS/layout in the “What Our Patients Say” testimonials section so it does not cause horizontal scrolling on mobile, while keeping the current layout and structure (grid/cards) unchanged. Ensure review card content (especially long review text strings) wraps correctly within the card/container and cannot force the page to overflow horizontally on small screens.",
+      "reqIds": [
+        "REQ-59"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-the-uploaded-logo-svg-as-the-visible-brand-logo-in-the-main-site-header-desktop-by-replacing-the-current-utthanlogo-placeholder-mark-so-the-logo-shows-as-a-real-graphic-never-as-alt-text-the-rendered-logo-color-must-be-exactly-70306c",
+      "title": "Render the uploaded `logo.svg` as the visible brand logo in the main site header (desktop) by replacing the current `UtthanLogo` placeholder mark so the logo shows as a real graphic (never as alt text). The rendered logo color must be exactly `#70306c`.",
+      "reqIds": [
+        "REQ-60"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-same-uploaded-logo-svg-to-the-mobile-menu-top-bar-header-area-so-the-logo-is-visible-when-the-mobile-menu-is-open-and-ensure-it-uses-the-exact-same-color-70306c",
+      "title": "Add the same uploaded `logo.svg` to the mobile menu top bar/header area so the logo is visible when the mobile menu is open, and ensure it uses the exact same color `#70306c`.",
+      "reqIds": [
+        "REQ-61"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-standardize-the-logo-asset-path-used-by-the-logo-mask-themed-logo-implementation-so-it-consistently-points-to-the-single-uploaded-logo-svg-file-avoid-mixed-paths-like-assets-logo-svg-vs-assets-images-logo-svg-and-ensure-the-header-uses-that-same-canonical-path",
+      "title": "Standardize the logo asset path used by the logo-mask/themed logo implementation so it consistently points to the single uploaded `logo.svg` file (avoid mixed paths like `/assets/logo.svg` vs `/assets/images/logo.svg`) and ensure the header uses that same canonical path.",
+      "reqIds": [
+        "REQ-62"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-site-header-and-mobile-menu-header-area-so-the-uploaded-logo-svg-is-used-as-the-visible-brand-logo-rendered-as-an-actual-svg-image-graphic-not-alt-text-and-apply-no-color-theming-do-not-force-70306c-theme-primary-or-currentcolor-masking-the-logo-must-display-using-its-original-colors-as-defined-inside-the-svg-file",
+      "title": "Update the site header and mobile menu header area so the uploaded `logo.svg` is used as the visible brand logo (rendered as an actual SVG image/graphic, not alt text), and apply no color theming (do not force `#70306c`, theme `primary`, or `currentColor` masking); the logo must display using its original colors as defined inside the SVG file.",
+      "reqIds": [
+        "REQ-63"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-standardize-the-logo-asset-path-across-the-frontend-so-all-logo-usages-reference-a-single-canonical-uploaded-logo-svg-path-and-remove-replace-any-mixed-logo-path-usage-e-g-assets-logo-svg-vs-assets-images-logo-svg-that-could-lead-to-missing-logos-or-incorrect-rendering",
+      "title": "Standardize the logo asset path across the frontend so all logo usages reference a single canonical uploaded `logo.svg` path, and remove/replace any mixed logo path usage (e.g., `/assets/logo.svg` vs `/assets/images/logo.svg`) that could lead to missing logos or incorrect rendering.",
+      "reqIds": [
+        "REQ-64"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-logo-from-the-mobile-menu-so-the-logo-appears-only-in-the-main-site-header-do-not-render-any-logo-inside-the-opened-mobile-navigation-panel-menu",
+      "title": "Remove the logo from the mobile menu so the logo appears only in the main site header (do not render any logo inside the opened mobile navigation panel/menu).",
+      "reqIds": [
+        "REQ-65"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-header-logo-is-colored-exactly-70316c-everywhere-it-appears-in-the-header-desktop-header-and-mobile-header-top-bar-using-the-same-uploaded-logo-svg-asset",
+      "title": "Ensure the header logo is colored exactly #70316c everywhere it appears in the header (desktop header and mobile header top bar), using the same uploaded logo.svg asset.",
+      "reqIds": [
+        "REQ-66"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -643,8 +739,20 @@
       "status": "pending"
     },
     {
-      "id": "AR-31",
-      "summary": "Update the About/Our Story section to use the user-provided image (replace the current Our Story image with the given one)",
+      "id": "AR-33",
+      "summary": "Remove the Therapist Profiles/Team page entirely from the site (delete the whole page/route) and remove any navigation/footer links pointing to it",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-34",
+      "summary": "Update the About page \"Our Story\" section image to use the uploaded unnamed.webp (replace the current Our Story image)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-35",
+      "summary": "Remove the logo from the mobile menu (menu should show no logo) and keep the logo only in the site header; ensure header logo is colored exactly #70316c",
       "reqIds": [],
       "status": "pending"
     }

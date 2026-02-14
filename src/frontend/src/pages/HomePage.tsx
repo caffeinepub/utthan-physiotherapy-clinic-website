@@ -208,17 +208,17 @@ export default function HomePage() {
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {REVIEWS.slice(0, 3).map((review) => (
-              <Card key={review.id} className="border-2 bg-card transition-all hover:border-secondary/50 hover:shadow-xl">
-                <CardHeader>
+              <Card key={review.id} className="min-w-0 border-2 bg-card transition-all hover:border-secondary/50 hover:shadow-xl">
+                <CardHeader className="min-w-0">
                   <div className="mb-2 flex items-center gap-1">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="h-5 w-5 fill-secondary text-secondary" />
                     ))}
                   </div>
-                  <CardTitle className="text-lg text-primary">{review.author}</CardTitle>
+                  <CardTitle className="min-w-0 break-words text-lg text-primary">{review.author}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="leading-relaxed text-muted-foreground line-clamp-6">{review.text}</p>
+                <CardContent className="min-w-0">
+                  <p className="break-word leading-relaxed text-muted-foreground line-clamp-6">{review.text}</p>
                 </CardContent>
               </Card>
             ))}

@@ -5,7 +5,6 @@ import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
 import ConditionsPage from './pages/ConditionsPage';
-import TherapistsPage from './pages/TherapistsPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import FaqPage from './pages/FaqPage';
 import ContactPage from './pages/ContactPage';
@@ -44,12 +43,6 @@ const conditionsRoute = createRoute({
   component: ConditionsPage,
 });
 
-const therapistsRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/team',
-  component: TherapistsPage,
-});
-
 const testimonialsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/testimonials',
@@ -74,7 +67,6 @@ const routeTree = rootRoute.addChildren([
   servicesRoute,
   serviceDetailRoute,
   conditionsRoute,
-  therapistsRoute,
   testimonialsRoute,
   faqRoute,
   contactRoute,

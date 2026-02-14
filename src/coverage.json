@@ -1,28 +1,39 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-14T14:41:09.803Z",
+  "generatedAt": "2026-02-14T17:42:41.414Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
-        "id": "REQ-54",
-        "summary": "Update the site header to use the uploaded `logo.svg` asset and ensure it renders in the primary brand color (#2E0527) on both desktop and mobile. The logo must render as an actual image/graphic (not alt text) and should not rely on inline `style={{ color: ... }}` on an `<img>` tag (since that does not theme most SVG images). Ensure the logo source path is consistent across the codebase (e.g., avoid mixing `/assets/logo.svg` and `/assets/images/logo.svg`) and that the rendered logo color follows `text-primary` / `currentColor` so it stays aligned with the theme.",
+        "id": "REQ-65",
+        "summary": "Remove the logo from the mobile menu so the logo appears only in the main site header (do not render any logo inside the opened mobile navigation panel/menu).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/layout/HeaderNav.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/layout/HeaderNav.tsx"
+        ]
+      },
+      {
+        "id": "REQ-66",
+        "summary": "Ensure the header logo is colored exactly #70316c everywhere it appears in the header (desktop header and mobile header top bar), using the same uploaded logo.svg asset.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/components/branding/UtthanLogo.tsx",
-          "frontend/src/components/layout/HeaderNav.tsx",
-          "frontend/src/index.css"
+          "frontend/src/index.css",
+          "frontend/src/components/layout/HeaderNav.tsx"
         ],
         "matchedFiles": [
           "frontend/src/components/branding/UtthanLogo.tsx",
-          "frontend/src/components/layout/HeaderNav.tsx",
-          "frontend/src/index.css"
+          "frontend/src/index.css",
+          "frontend/src/components/layout/HeaderNav.tsx"
         ]
       }
     ]

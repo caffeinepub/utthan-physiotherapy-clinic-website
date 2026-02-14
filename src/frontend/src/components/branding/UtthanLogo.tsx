@@ -6,11 +6,10 @@ interface UtthanLogoProps {
 
 export default function UtthanLogo({ className }: UtthanLogoProps) {
   return (
-    <div
-      className={cn('logo-themed h-10 w-auto', className)}
-      role="img"
-      aria-label="Utthan Physiotherapy Clinic"
-      style={{ aspectRatio: '200 / 40' }}
+    <img
+      src="/assets/logo.svg"
+      alt="Utthan Physiotherapy Clinic"
+      className={cn('utthan-logo-brand', 'object-contain', className)}
     />
   );
 }

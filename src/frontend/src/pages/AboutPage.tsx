@@ -45,7 +45,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="overflow-hidden rounded-2xl shadow-2xl">
                 <img
-                  src="/assets/image-1.png"
+                  src="/assets/unnamed.webp"
                   alt="Utthan Physiotherapy Clinic treatment facility in Kamrej, Surat with modern physiotherapy equipment and treatment beds"
                   className="h-full w-full object-cover"
                 />
@@ -174,15 +174,14 @@ export default function AboutPage() {
             <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               Ready to Experience the Utthan Difference?
             </h2>
-            <p className="mb-8 text-xl leading-relaxed opacity-90 lg:text-2xl">
-              Join hundreds of satisfied patients who have found relief and recovery with our expert care.
+            <p className="mb-8 text-xl leading-relaxed text-primary-foreground/90 lg:text-2xl">
+              Book your appointment today and take the first step towards better health.
             </p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <BookAppointmentButton size="lg" variant="secondary" className="shadow-xl" />
-              <Button size="lg" variant="outline" className="border-2 border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-                <Link to="/services">
-                  View Our Services
-                  <ArrowRight className="ml-2 h-4 w-4" />
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <BookAppointmentButton size="lg" variant="secondary" />
+              <Button asChild size="lg" variant="outline" className="border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10">
+                <Link to="/contact">
+                  Contact Us <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </div>

@@ -37,14 +37,14 @@ export default function TestimonialsPage() {
         <div className="container">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {REVIEWS.map((review) => (
-              <Card key={review.id} className="card-hover border-2 border-secondary/20 hover:border-secondary/50">
-                <CardHeader>
+              <Card key={review.id} className="card-hover min-w-0 border-2 border-secondary/20 hover:border-secondary/50">
+                <CardHeader className="min-w-0">
                   <div className="mb-3 flex">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Star key={i} className="h-5 w-5 fill-secondary text-secondary" />
                     ))}
                   </div>
-                  <CardTitle className="text-lg text-primary">{review.author}</CardTitle>
+                  <CardTitle className="min-w-0 break-words text-lg text-primary">{review.author}</CardTitle>
                   {review.date && (
                     <p className="text-sm text-muted-foreground">
                       {new Date(review.date).toLocaleDateString('en-US', {
@@ -55,9 +55,9 @@ export default function TestimonialsPage() {
                     </p>
                   )}
                 </CardHeader>
-                <CardContent>
+                <CardContent className="min-w-0">
                   <Quote className="mb-2 h-6 w-6 text-secondary/30" />
-                  <p className="text-muted-foreground">{review.text}</p>
+                  <p className="break-word text-muted-foreground">{review.text}</p>
                 </CardContent>
               </Card>
             ))}

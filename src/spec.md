@@ -1,11 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Update the site header to use the uploaded `logo.svg` and ensure it renders in the primary brand color (#2E0527) consistently across desktop and mobile.
+**Goal:** Remove the duplicate logo from the mobile navigation menu and ensure the header logo renders in color `#70316c` using the existing `logo.svg` asset.
 
 **Planned changes:**
-- Switch the header logo implementation to use the canonical `logo.svg` asset path across the codebase and ensure it resolves without 404s.
-- Ensure the SVG logo renders as a visible graphic (not alt-text-only) and links to `/` on all breakpoints.
-- Implement themeable logo coloring so the logo renders in #2E0527 via `currentColor` / `text-primary` (or equivalent), avoiding inline `style={{ color: ... }}` on an `<img>`.
+- Update the mobile navigation panel/menu to not render any logo when the hamburger menu is opened (logo remains only in the main header).
+- Adjust header logo rendering so its displayed color is exactly `#70316c` across both desktop header and mobile header top bar, without recoloring other UI elements.
 
-**User-visible outcome:** The header shows the site logo (clickable to `/`) in the correct primary brand color on both desktop and mobile, with consistent loading and theming.
+**User-visible outcome:** On mobile, opening the hamburger menu shows no logo inside the menu panel, while the top header still shows a clickable logo that matches color `#70316c` on both mobile and desktop.

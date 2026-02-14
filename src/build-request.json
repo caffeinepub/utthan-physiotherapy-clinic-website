@@ -1,50 +1,61 @@
 {
   "kind": "build_request",
-  "title": "Use uploaded logo.svg in header with primary brand color",
+  "title": "Remove logo from mobile menu and recolor header logo to #70316c",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-54",
-      "text": "Update the site header to use the uploaded `logo.svg` asset and ensure it renders in the primary brand color (#2E0527) on both desktop and mobile. The logo must render as an actual image/graphic (not alt text) and should not rely on inline `style={{ color: ... }}` on an `<img>` tag (since that does not theme most SVG images). Ensure the logo source path is consistent across the codebase (e.g., avoid mixing `/assets/logo.svg` and `/assets/images/logo.svg`) and that the rendered logo color follows `text-primary` / `currentColor` so it stays aligned with the theme.",
+      "id": "REQ-65",
+      "text": "Remove the logo from the mobile menu so the logo appears only in the main site header (do not render any logo inside the opened mobile navigation panel/menu).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "recent-messages"
+          "recent-messages-4",
+          "recent-messages-5"
         ],
         "quotes": [
-          "changes\n- use the uploaded logo.svg file with the primary color",
-          "start building"
+          "remove logo from menu and just keep it in header",
+          "1 remove from menu, it should be just in header"
         ]
       },
       "acceptanceCriteria": [
-        "On all breakpoints, the header logo renders visually (no alt-text-only rendering) and links to `/`.",
-        "The header logo color is exactly the primary brand color (#2E0527) in normal/light mode.",
-        "The solution uses a themeable approach (e.g., `currentColor` / `text-primary` or equivalent) rather than an inline `color` style on an `<img>` element.",
-        "Only one canonical logo asset path is used by the header logo implementation, and it resolves without 404s in the deployed build."
+        "On mobile, opening the hamburger menu does not show any logo within the menu panel (no top bar logo, no duplicate logo).",
+        "The site header (top bar) still displays the logo and remains clickable to navigate to Home.",
+        "Desktop header continues to display the logo as before."
+      ]
+    },
+    {
+      "id": "REQ-66",
+      "text": "Ensure the header logo is colored exactly #70316c everywhere it appears in the header (desktop header and mobile header top bar), using the same uploaded logo.svg asset.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages-4",
+          "recent-messages-5"
+        ],
+        "quotes": [
+          "and logo should be colored with #70316c",
+          "2 yes",
+          "3 yes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The rendered logo color in the header matches exactly #70316c (visually and via computed styles where applicable).",
+        "No other UI elements are unintentionally recolored when applying the logo color.",
+        "The logo continues to render as a graphic (not alt text) and uses the same logo.svg asset path consistently."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under `frontend/src/components/ui` (shadcn UI sources are read-only).",
-    "Do not modify any files listed in `frontend.immutablePaths` from SYSTEM_CONTEXT.",
-    "Keep backend as a single Motoko actor; no backend changes are needed for this request."
+    "Do not edit files under frontend/src/components/ui (shadcn components are read-only).",
+    "Do not edit any frontend immutablePaths listed in SYSTEM_CONTEXT (compose instead).",
+    "Backend must remain single-actor; no backend changes are required for this request."
   ],
   "nonGoals": [
-    "No homepage/hero/layout redesign changes beyond what is necessary to update the header logo.",
-    "No changes to clinic content, SEO, services, reviews, or booking links as part of this request."
+    "Do not change navigation labels, routes, or page structure.",
+    "Do not redesign the header layout beyond removing the mobile menu logo and adjusting logo color."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }
