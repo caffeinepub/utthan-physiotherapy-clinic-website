@@ -1,7 +1,9 @@
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, ExternalLink } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import Seo from '@/components/seo/Seo';
 import { REVIEWS } from '@/content/reviews';
+import { CLINIC_INFO } from '@/lib/clinicInfo';
 import { getReviewSchema } from '@/lib/seoSchema';
 
 export default function TestimonialsPage() {
@@ -38,18 +40,20 @@ export default function TestimonialsPage() {
               <Card key={review.id} className="card-hover border-2 border-secondary/20 hover:border-secondary/50">
                 <CardHeader>
                   <div className="mb-3 flex">
-                    {Array.from({ length: review.rating }).map((_, i) => (
+                    {Array.from({ length: 5 }).map((_, i) => (
                       <Star key={i} className="h-5 w-5 fill-secondary text-secondary" />
                     ))}
                   </div>
                   <CardTitle className="text-lg text-primary">{review.author}</CardTitle>
-                  <p className="text-sm text-muted-foreground">
-                    {new Date(review.date).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </p>
+                  {review.date && (
+                    <p className="text-sm text-muted-foreground">
+                      {new Date(review.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </p>
+                  )}
                 </CardHeader>
                 <CardContent>
                   <Quote className="mb-2 h-6 w-6 text-secondary/30" />
@@ -57,6 +61,16 @@ export default function TestimonialsPage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          {/* More Reviews Link */}
+          <div className="mt-12 text-center">
+            <Button size="lg" variant="outline" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground" asChild>
+              <a href={CLINIC_INFO.googleReviewsUrl} target="_blank" rel="noopener noreferrer">
+                More Reviews on Google
+                <ExternalLink className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
           </div>
         </div>
       </section>

@@ -1,10 +1,11 @@
 import { Link } from '@tanstack/react-router';
-import { ArrowRight, CheckCircle, Star, Users, Award, Building2, Heart } from 'lucide-react';
+import { ArrowRight, CheckCircle, Star, Users, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import BookAppointmentButton from '@/components/cta/BookAppointmentButton';
 import MobileStickyBookingCta from '@/components/cta/MobileStickyBookingCta';
 import ServiceCard from '@/components/services/ServiceCard';
+import WhoWeAreSection from '@/components/home/WhoWeAreSection';
 import Seo from '@/components/seo/Seo';
 import { getLocalBusinessSchema } from '@/lib/seoSchema';
 import { CLINIC_CONTENT } from '@/content/clinicContent';
@@ -27,7 +28,7 @@ export default function HomePage() {
             {/* Hero Content */}
             <div className="space-y-8">
               <div className="space-y-4">
-                <h1 className="text-4xl font-semibold leading-tight tracking-wide text-primary sm:text-5xl lg:text-6xl">
+                <h1 className="text-4xl font-medium leading-tight tracking-normal text-primary sm:text-5xl lg:text-6xl">
                   Experience personalized physiotherapy treatment that gets you back to doing what you love
                 </h1>
                 <p className="text-xl leading-relaxed text-muted-foreground lg:text-2xl">
@@ -81,9 +82,9 @@ export default function HomePage() {
             <div className="relative">
               <div className="relative overflow-hidden rounded-3xl shadow-2xl">
                 <img
-                  src="/assets/generated/hero-back-pain-cutout.dim_1400x1400.png"
-                  alt="Professional physiotherapy treatment for back pain at Utthan Clinic"
-                  className="h-full w-full object-contain"
+                  src="/assets/back_pain.png"
+                  alt="Professional physiotherapy treatment for back pain and spine health at Utthan Clinic"
+                  className="h-full w-full object-cover"
                 />
               </div>
               {/* Decorative Element */}
@@ -169,17 +170,6 @@ export default function HomePage() {
               <CardContent className="pt-10">
                 <div className="mb-6 flex justify-center">
                   <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-secondary/10">
-                    <Building2 className="h-10 w-10 text-secondary" />
-                  </div>
-                </div>
-                <div className="mb-2 text-5xl font-bold text-primary">10+</div>
-                <p className="text-lg text-muted-foreground">Hospitals Partnered</p>
-              </CardContent>
-            </Card>
-            <Card className="border-2 border-secondary/20 bg-card text-center transition-all hover:border-secondary/50 hover:shadow-xl">
-              <CardContent className="pt-10">
-                <div className="mb-6 flex justify-center">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-secondary/10">
                     <Users className="h-10 w-10 text-secondary" />
                   </div>
                 </div>
@@ -187,9 +177,23 @@ export default function HomePage() {
                 <p className="text-lg text-muted-foreground">Happy Patients</p>
               </CardContent>
             </Card>
+            <Card className="border-2 border-secondary/20 bg-card text-center transition-all hover:border-secondary/50 hover:shadow-xl">
+              <CardContent className="pt-10">
+                <div className="mb-6 flex justify-center">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-secondary/10">
+                    <Star className="h-10 w-10 text-secondary" />
+                  </div>
+                </div>
+                <div className="mb-2 text-5xl font-bold text-primary">{GOOGLE_RATING}</div>
+                <p className="text-lg text-muted-foreground">Google Rating</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
+
+      {/* Who We Are Section */}
+      <WhoWeAreSection />
 
       {/* Testimonials Preview */}
       <section className="py-20 lg:py-32">
@@ -199,28 +203,22 @@ export default function HomePage() {
               What Our Patients Say
             </h2>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground lg:text-xl">
-              Real stories from real people who've experienced our care.
+              Real stories from real patients who found relief and recovery at Utthan.
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {REVIEWS.slice(0, 3).map((review) => (
-              <Card key={review.id} className="group border-2 transition-all hover:border-secondary/50 hover:shadow-xl">
+              <Card key={review.id} className="border-2 bg-card transition-all hover:border-secondary/50 hover:shadow-xl">
                 <CardHeader>
-                  <div className="mb-3 flex">
-                    {Array.from({ length: review.rating }).map((_, i) => (
+                  <div className="mb-2 flex items-center gap-1">
+                    {[...Array(5)].map((_, i) => (
                       <Star key={i} className="h-5 w-5 fill-secondary text-secondary" />
                     ))}
                   </div>
                   <CardTitle className="text-lg text-primary">{review.author}</CardTitle>
-                  <p className="text-sm text-muted-foreground">
-                    {new Date(review.date).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                    })}
-                  </p>
                 </CardHeader>
                 <CardContent>
-                  <p className="leading-relaxed text-muted-foreground">{review.text}</p>
+                  <p className="leading-relaxed text-muted-foreground line-clamp-6">{review.text}</p>
                 </CardContent>
               </Card>
             ))}
@@ -228,7 +226,7 @@ export default function HomePage() {
           <div className="mt-12 text-center">
             <Button size="lg" variant="outline" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground" asChild>
               <Link to="/testimonials">
-                Read More Reviews
+                Read All Reviews
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -236,26 +234,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-br from-primary to-secondary py-20 lg:py-32">
+      {/* Final CTA */}
+      <section className="bg-gradient-to-br from-primary to-primary/80 py-20 text-primary-foreground lg:py-32">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
-            <Heart className="mx-auto mb-6 h-16 w-16 text-primary-foreground" />
-            <h2 className="mb-6 text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl lg:text-5xl">
+            <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               Ready to Start Your Recovery Journey?
             </h2>
-            <p className="mb-8 text-lg text-primary-foreground/90 lg:text-xl">
-              Book your appointment today and take the first step towards a pain-free, active life.
+            <p className="mb-8 text-xl leading-relaxed opacity-90 lg:text-2xl">
+              Book your appointment today and take the first step towards a pain-free life.
             </p>
-            <BookAppointmentButton 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-primary-foreground bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-xl" 
-            />
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+              <BookAppointmentButton size="lg" variant="secondary" className="shadow-xl" />
+              <Button size="lg" variant="outline" className="border-2 border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+                <Link to="/contact">
+                  Contact Us
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Mobile Sticky CTA */}
       <MobileStickyBookingCta />
     </>
   );

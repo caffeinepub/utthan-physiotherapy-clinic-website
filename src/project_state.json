@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 15,
-  "summary": "Add full homepage redesign aligned to the provided Pinterest reference template while still enforcing the clinic’s strict brand palette, and apply content fixes requested during review (hero readability/contrast, use provided logo.svg, replace hero image with back_pain.png with background removed, fix missing service images, update hero headline typography, display 4.9 rating from 147 Google reviews, embed Google Map iframe in Contact section, remove Facebook icon, correct Instagram handle link, update Sunday hours only).",
+  "projectStateVersion": 33,
+  "summary": "Homepage redesign aligned to the provided Pinterest reference template while enforcing the clinic’s strict brand palette, plus review fixes: hero readability/contrast, replace header logo with the user-provided SVG (fix current issue where only alt text shows), replace hero image with exactly https://utthan.vercel.app/assets/images/back_pain.png with background removed, fix missing service images by generating unique real physiotherapy photos per service and placing them on all service cards, update hero headline typography (slightly lighter weight + tighter letter spacing), display 4.9 rating from 147 Google reviews, update Reviews/Testimonial content to only 5-star positive detailed reviews from the provided Google Business profile link, embed Google Map iframe in Contact section, remove Facebook icon, correct Instagram handle link, update Sunday hours only, and add/update the Home \"Who we are\" section placed before \"What Our Patients Say\" using the user-provided copy (signed by Dr. Roshani Mansuriya) and image https://utthan.vercel.app/assets/images/dr-banner.jpg; ensure logo.svg renders in primary color #2E0527 across header (desktop + mobile).",
   "architectural_notes": [
     "No backend email delivery: use mailto: email button instead of contact form notifications/newsletter emailing.",
     "Content/assets sourced from existing site and Google Business listing; ensure proper attribution/usage rights for photos.",
@@ -27,7 +27,6 @@
     "Services section missing images (service cards not showing photos)."
   ],
   "isFixRequest": true,
-  "imageRequirements": "## Required Images\n- Background-removed cutout of a person with lower back pain, transparent background (hero-back-pain-cutout.dim_1400x1400.png)",
   "existing_features": [
     {
       "id": "feature-build-a-responsive-mobile-first-marketing-website-for-utthan-physiotherapy-clinic-using-the-existing-website-https-utthan-vercel-app-as-the-primary-source-for-service-details-content-structure-and-assets-and-the-google-business-listing-at-https-share-google-bqixx36e04bg7gfuv-to-gather-additional-clinic-photos-reviews-location-details-and-business-info",
@@ -324,6 +323,142 @@
         "REQ-37"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-the-home-page-hero-headline-typography-so-the-text-experience-personalized-physiotherapy-treatment-that-gets-you-back-to-doing-what-you-love-uses-tighter-letter-spacing-than-the-current-styling-and-uses-a-slightly-lighter-font-weight-less-bold-while-maintaining-strong-readability-and-contrast-within-the-strict-brand-palette",
+      "title": "Update the Home page hero headline typography so the text “Experience personalized physiotherapy treatment that gets you back to doing what you love” uses tighter letter-spacing than the current styling and uses a slightly lighter font weight (less bold), while maintaining strong readability and contrast within the strict brand palette.",
+      "reqIds": [
+        "REQ-38"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-on-site-testimonials-reviews-content-so-it-includes-only-5-star-positive-most-detailed-reviews-from-the-provided-google-business-profile-link-https-www-google-com-search-q-utthan-physiotherapy-clinic-250d-250a-oq-utthan-physiotherapy-clinic-gs-lcrp-egzjahjvbwuqbggaeeuyozigcaaqrrg7mgciaraagiaemgciahaagiaemggiaxaagbyyhjiicaqqabgwgb4ydqgfeaayhgmygaqyiguybgggeeuypdigcacqrrg80geindqwnmowajeoagiwaghxbxa-f4vsevly8qv2vxel7hls8g-sourceid-chrome-ie-utf-8-lrd-0xa31c4a35e61fc015-0x623cd7f2c543bf6d-1-and-remove-replace-any-existing-placeholder-reviews-that-are-not-sourced-from-that-profile",
+      "title": "Update the on-site Testimonials/Reviews content so it includes only 5-star, positive, most-detailed reviews from the provided Google Business profile link (https://www.google.com/search?q=Utthan+Physiotherapy+Clinic%250D%250A&oq=utthan+Physiotherapy+Clinic&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgcIARAAGIAEMgcIAhAAGIAEMggIAxAAGBYYHjIICAQQABgWGB4yDQgFEAAYhgMYgAQYigUyBggGEEUYPDIGCAcQRRg80gEINDQwNmowajeoAgiwAgHxBXa_F4vseVLy8QV2vxeL7HlS8g&sourceid=chrome&ie=UTF-8#lrd=0xa31c4a35e61fc015:0x623cd7f2c543bf6d,1,,,,) and remove/replace any existing placeholder reviews that are not sourced from that profile.",
+      "reqIds": [
+        "REQ-39"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-add-unique-service-specific-real-physiotherapy-photo-images-for-every-service-in-frontend-src-content-services-ts-and-update-each-service-to-reference-its-own-unique-image-path-and-descriptive-alt-text-so-that-all-service-cards-on-the-home-page-and-services-page-display-a-real-image-no-missing-images-and-no-fallback-image",
+      "title": "Generate and add unique, service-specific real physiotherapy photo images for every service in `frontend/src/content/services.ts`, and update each service to reference its own unique image path and descriptive alt text so that all Service Cards on the Home page and Services page display a real image (no missing images and no fallback image).",
+      "reqIds": [
+        "REQ-40"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-canonical-appointment-booking-calendly-url-to-exactly-https-calendly-com-utthan-health-30min-and-ensure-every-book-appointment-booking-cta-across-the-site-uses-this-single-canonical-value-including-header-cta-and-the-mobile-sticky-booking-cta",
+      "title": "Update the canonical appointment booking (Calendly) URL to exactly https://calendly.com/utthan-health/30min, and ensure every “Book Appointment” / booking CTA across the site uses this single canonical value (including header CTA and the mobile sticky booking CTA).",
+      "reqIds": [
+        "REQ-41"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-change-the-header-logo-color-to-use-the-site-primary-brand-color-so-the-logo-renders-in-2e0527-text-primary",
+      "title": "Change the header logo color to use the site primary brand color (so the logo renders in #2E0527 / `text-primary`).",
+      "reqIds": [
+        "REQ-42"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-on-site-testimonials-reviews-content-so-it-uses-exactly-the-specific-google-reviews-provided-by-the-user-authors-review-text-and-add-a-more-reviews-link-that-redirects-to-https-share-google-nwt2p0t87josoazah",
+      "title": "Replace the on-site Testimonials/Reviews content so it uses exactly the specific Google reviews provided by the user (authors + review text), and add a “More reviews” link that redirects to https://share.google/NWt2P0T87joSoAzaH.",
+      "reqIds": [
+        "REQ-43"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-site-header-to-use-the-provided-svg-logo-file-logo-svg-from-https-utthan-vercel-app-assets-images-logo-svg-instead-of-the-current-inline-utthanlogo-mark-while-keeping-the-logo-themeable-able-to-render-in-the-primary-brand-color-2e0527-via-currentcolor-css-and-appropriately-sized-for-desktop-and-mobile",
+      "title": "Update the site header to use the provided SVG logo file (logo.svg from https://utthan.vercel.app/assets/images/logo.svg) instead of the current inline `UtthanLogo` mark, while keeping the logo themeable (able to render in the primary brand color #2E0527 via `currentColor`/CSS) and appropriately sized for desktop and mobile.",
+      "reqIds": [
+        "REQ-44"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-who-we-are-section-to-the-home-page-route-and-place-it-immediately-before-the-existing-what-our-patients-say-testimonials-preview-section-pull-the-who-we-are-section-content-from-https-utthan-vercel-app-and-use-the-same-image-that-the-reference-site-uses-for-that-section",
+      "title": "Add a new “Who we are” section to the Home page (route: `/`) and place it immediately before the existing “What Our Patients Say” (Testimonials Preview) section. Pull the “Who we are” section content from https://utthan.vercel.app/ and use the same image that the reference site uses for that section.",
+      "reqIds": [
+        "REQ-45"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-header-logo-so-the-svg-logo-renders-as-an-image-not-the-alt-text-using-the-provided-logo-asset-from-https-utthan-vercel-app-assets-images-logo-svg-and-ensure-it-displays-correctly-on-both-desktop-and-mobile-header-navigation",
+      "title": "Fix the header logo so the SVG logo renders as an image (not the alt text), using the provided logo asset from https://utthan.vercel.app/assets/images/logo.svg, and ensure it displays correctly on both desktop and mobile header navigation.",
+      "reqIds": [
+        "REQ-46"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-entire-home-page-who-we-are-section-content-with-the-user-provided-text-and-update-the-section-image-to-https-utthan-vercel-app-assets-images-dr-banner-jpg",
+      "title": "Replace the entire Home page “Who we are” section content with the user-provided text and update the section image to https://utthan.vercel.app/assets/images/dr-banner.jpg.",
+      "reqIds": [
+        "REQ-47"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-existing-clinic-photo-s-on-the-about-utthan-page-route-about-opened-via-the-read-our-full-story-cta-with-the-2-user-uploaded-clinic-photos-keeping-the-current-layout-exactly-the-same-as-it-is-now",
+      "title": "Replace the existing clinic photo(s) on the About Utthan page (route: `/about`, opened via the “Read Our Full Story” CTA) with the 2 user-uploaded clinic photos, keeping the current layout exactly the same as it is now.",
+      "reqIds": [
+        "REQ-48"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-2-uploaded-clinic-photos-as-static-frontend-assets-and-reference-them-directly-from-the-about-page-react-components-no-backend-image-routing",
+      "title": "Add the 2 uploaded clinic photos as static frontend assets and reference them directly from the About page React components (no backend image routing).",
+      "reqIds": [
+        "REQ-49"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-footer-credit-line-so-it-displays-exactly-built-with-heart-icon-by-madhav-mansuriya-and-remove-any-using-caffeine-ai-text-and-outbound-caffeine-ai-link-from-the-footer",
+      "title": "Update the Footer credit line so it displays exactly “Built with <heart icon> by Madhav Mansuriya” and remove any “using caffeine.ai” text and outbound caffeine.ai link from the footer.",
+      "reqIds": [
+        "REQ-50"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-stray-built-withusing-caffeine-ai-or-equivalent-block-that-appears-above-the-footer-so-there-is-no-extra-credit-text-block-rendered-between-the-main-page-content-and-the-footer",
+      "title": "Remove the stray “Built withusing caffeine.ai” (or equivalent) block that appears above the footer, so there is no extra credit/text block rendered between the main page content and the footer.",
+      "reqIds": [
+        "REQ-51"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-site-header-displays-the-provided-logo-svg-not-alt-text-and-that-the-header-logo-renders-in-color-2e0527",
+      "title": "Ensure the site header displays the provided logo.svg (not alt text) and that the header logo renders in color #2E0527.",
+      "reqIds": [
+        "REQ-52"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-about-page-our-story-section-image-to-use-the-user-uploaded-image-image-1-png",
+      "title": "Update the About page “Our Story” section image to use the user-uploaded image (image-1.png).",
+      "reqIds": [
+        "REQ-53"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-site-header-to-use-the-uploaded-logo-svg-asset-and-ensure-it-renders-in-the-primary-brand-color-2e0527-on-both-desktop-and-mobile-the-logo-must-render-as-an-actual-image-graphic-not-alt-text-and-should-not-rely-on-inline-style-color-on-an-img-tag-since-that-does-not-theme-most-svg-images-ensure-the-logo-source-path-is-consistent-across-the-codebase-e-g-avoid-mixing-assets-logo-svg-and-assets-images-logo-svg-and-that-the-rendered-logo-color-follows-text-primary-currentcolor-so-it-stays-aligned-with-the-theme",
+      "title": "Update the site header to use the uploaded `logo.svg` asset and ensure it renders in the primary brand color (#2E0527) on both desktop and mobile. The logo must render as an actual image/graphic (not alt text) and should not rely on inline `style={{ color: ... }}` on an `<img>` tag (since that does not theme most SVG images). Ensure the logo source path is consistent across the codebase (e.g., avoid mixing `/assets/logo.svg` and `/assets/images/logo.svg`) and that the rendered logo color follows `text-primary` / `currentColor` so it stays aligned with the theme.",
+      "reqIds": [
+        "REQ-54"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -444,6 +579,72 @@
     {
       "id": "AR-20",
       "summary": "Adjust hero headline typography: make the headline less bold and add letter spacing to reduce the congested look",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-21",
+      "summary": "Curate and update Reviews/Testimonial content using only 5-star positive, most-detailed Google reviews from the provided Google Business profile link",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Generate and add unique, service-specific real physiotherapy photo images for every service card and ensure assets render correctly across Home + Services pages",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-23",
+      "summary": "Update the appointment booking CTA to use the correct Calendly link: https://calendly.com/utthan-health/30min (apply wherever booking links appear)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-24",
+      "summary": "Update the header SVG logo styling so the logo color uses the primary brand color (#2E0527)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-25",
+      "summary": "Replace Testimonials/Reviews content with exactly the specific Google reviews provided by the user, and add a 'More reviews' link redirecting to the Google Business profile share link https://share.google/NWt2P0T87joSoAzaH",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-26",
+      "summary": "Add a \"Who we are\" section on the Home page (placed before \"What Our Patients Say\"), pulling the same content and image from https://utthan.vercel.app/",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-27",
+      "summary": "Fix header SVG logo rendering (currently shows alt text) and replace the full Home \"Who we are\" section content with the user-provided copy, using https://utthan.vercel.app/assets/images/dr-banner.jpg as the section image",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-28",
+      "summary": "Replace the images on the About Utthan page (opened via 'Read Our Full Story') with the provided clinic photos, keeping the current layout unchanged",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-29",
+      "summary": "Remove the stray “Built withusing caffeine.ai” block that appears above the footer (keep footer clean; do not render this block outside the footer)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-30",
+      "summary": "Update footer credit line to exactly: “Built with <heart icon> by Madhav Mansuriya” (replacing the current incorrect footer text)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-31",
+      "summary": "Update the About/Our Story section to use the user-provided image (replace the current Our Story image with the given one)",
       "reqIds": [],
       "status": "pending"
     }

@@ -27,6 +27,22 @@ export const CLINIC_CONTENT = {
     ],
     story: 'Founded with a vision to provide world-class physiotherapy services in Kamrej, Utthan Physiotherapy Clinic has been serving the community with dedication and expertise. Our state-of-the-art facility and experienced team of physiotherapists are committed to helping you overcome pain, recover from injuries, and achieve your health goals through personalized, evidence-based care.',
   },
+  whoWeAre: {
+    title: 'Who We Are',
+    subtitle: 'A Promise of Hope & Change',
+    description: 'Utthan Physiotherapy Clinic is more than just a healthcare facility—it\'s a movement towards better health and wellness. We believe that no one should be held back by pain, injury, or physical limitations. From the challenges of chronic pain to the journey of complete recovery, our story is defined by the smiles we bring to our patients\' faces.',
+    commitment: 'We are committed to the holistic well-being of our community through evidence-based physiotherapy care.',
+    features: [
+      {
+        title: 'Holistic Development',
+        description: 'Comprehensive treatment plans addressing physical, functional, and lifestyle factors for sustainable recovery.',
+      },
+      {
+        title: 'Community Driven',
+        description: 'Working closely with patients and their families to identify needs and deliver personalized care.',
+      },
+    ],
+  },
   whyChooseUs: [
     {
       title: 'Experienced Therapists',

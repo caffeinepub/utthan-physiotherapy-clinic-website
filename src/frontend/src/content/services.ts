@@ -28,8 +28,8 @@ export const SERVICES: Service[] = [
       'People with poor posture',
       'Office workers with sedentary lifestyles',
     ],
-    imagePath: '/assets/services/back-pain.dim_1200x800.jpg',
-    imageAlt: 'Physiotherapist treating patient with back pain using manual therapy techniques',
+    imagePath: '/assets/generated/service-back-pain-therapy.dim_1200x800.jpg',
+    imageAlt: 'Professional physiotherapist performing back pain therapy treatment with manual techniques on patient',
   },
   {
     id: 'sports-injury-rehabilitation',
@@ -49,8 +49,8 @@ export const SERVICES: Service[] = [
       'Individuals with sports-related injuries',
       'Those preparing to return to sport',
     ],
-    imagePath: '/assets/services/sports-injury.dim_1200x800.jpg',
-    imageAlt: 'Athlete performing rehabilitation exercises with physiotherapist guidance',
+    imagePath: '/assets/generated/service-sports-injury-rehabilitation.dim_1200x800.jpg',
+    imageAlt: 'Athlete receiving sports injury rehabilitation therapy with physiotherapist guidance and support',
   },
   {
     id: 'post-surgical-physiotherapy',
@@ -70,8 +70,8 @@ export const SERVICES: Service[] = [
       'Individuals after ligament reconstruction',
       'Post-fracture surgery patients',
     ],
-    imagePath: '/assets/services/post-surgical.dim_1200x800.jpg',
-    imageAlt: 'Post-surgical patient receiving physiotherapy treatment for recovery',
+    imagePath: '/assets/generated/service-post-surgical-physiotherapy.dim_1200x800.jpg',
+    imageAlt: 'Post-surgical patient receiving expert physiotherapy rehabilitation treatment for optimal recovery',
   },
   {
     id: 'posture-correction',
@@ -91,8 +91,8 @@ export const SERVICES: Service[] = [
       'Those with rounded shoulders',
       'People experiencing postural pain',
     ],
-    imagePath: '/assets/services/posture-correction.dim_1200x800.jpg',
-    imageAlt: 'Physiotherapist assessing and correcting patient posture alignment',
+    imagePath: '/assets/generated/service-posture-correction.dim_1200x800.jpg',
+    imageAlt: 'Physiotherapist performing posture correction assessment and treatment for better alignment',
   },
   {
     id: 'manual-therapy',
@@ -112,8 +112,8 @@ export const SERVICES: Service[] = [
       'People recovering from injuries',
       'Anyone seeking natural pain relief',
     ],
-    imagePath: '/assets/services/manual-therapy.dim_1200x800.jpg',
-    imageAlt: 'Physiotherapist performing manual therapy techniques on patient',
+    imagePath: '/assets/generated/service-manual-therapy.dim_1200x800.jpg',
+    imageAlt: 'Skilled physiotherapist performing manual therapy techniques for pain relief and mobility',
   },
   {
     id: 'neurological-rehabilitation',
@@ -133,8 +133,8 @@ export const SERVICES: Service[] = [
       'Those with Parkinson\'s disease',
       'People with multiple sclerosis',
     ],
-    imagePath: '/assets/services/neuro-rehab.dim_1200x800.jpg',
-    imageAlt: 'Neurological rehabilitation therapy session with physiotherapist',
+    imagePath: '/assets/generated/service-neurological-rehabilitation.dim_1200x800.jpg',
+    imageAlt: 'Specialized neurological rehabilitation therapy session with expert physiotherapist care',
   },
   {
     id: 'dry-needling',
@@ -154,8 +154,8 @@ export const SERVICES: Service[] = [
       'Athletes with muscle tightness',
       'People with myofascial pain syndrome',
     ],
-    imagePath: '/assets/services/dry-needling.dim_1200x800.jpg',
-    imageAlt: 'Dry needling treatment being performed by physiotherapist',
+    imagePath: '/assets/generated/service-dry-needling.dim_1200x800.jpg',
+    imageAlt: 'Professional dry needling treatment being performed by certified physiotherapist',
   },
 ];
 

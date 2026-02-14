@@ -1,131 +1,50 @@
 {
   "kind": "build_request",
-  "title": "Use SVG logo, fix hero image + headline styling, update rating, embed Google Map, remove Facebook icon",
+  "title": "Use uploaded logo.svg in header with primary brand color",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-32",
-      "text": "Replace the text-only site logo in the header with the provided SVG logo from https://utthan.vercel.app/assets/images/logo.svg, ensuring the logo can be sized appropriately for desktop/mobile and its colors can be adjusted to match the site’s strict brand palette.",
+      "id": "REQ-54",
+      "text": "Update the site header to use the uploaded `logo.svg` asset and ensure it renders in the primary brand color (#2E0527) on both desktop and mobile. The logo must render as an actual image/graphic (not alt text) and should not rely on inline `style={{ color: ... }}` on an `<img>` tag (since that does not theme most SVG images). Ensure the logo source path is consistent across the codebase (e.g., avoid mixing `/assets/logo.svg` and `/assets/images/logo.svg`) and that the rendered logo color follows `text-primary` / `currentColor` so it stays aligned with the theme.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "recent-messages"
         ],
         "quotes": [
-          "I want you to use logo (https://utthan.vercel.app/assets/images/logo.svg)\n\nits an SV image so that you can change colors and size as per your preference"
+          "changes\n- use the uploaded logo.svg file with the primary color",
+          "start building"
         ]
       },
       "acceptanceCriteria": [
-        "Header shows the SVG logo instead of the text-only “Utthan / Physiotherapy Clinic” logo block",
-        "Logo is visible and crisp on mobile and desktop and does not overflow the header layout",
-        "Logo styling (size/color) is controlled in-app (not hard-coded in the remote asset) and matches the site’s brand palette"
-      ]
-    },
-    {
-      "id": "REQ-33",
-      "text": "Update the Home page hero image to fully replace the current spine hero image with the provided image https://utthan.vercel.app/assets/images/back_pain.png, using a background-removed cutout version of that image as the hero visual.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "recent-messages"
-        ],
-        "quotes": [
-          "also use this https://utthan.vercel.app/assets/images/back_pain.png as a hero image (remove the background and use it)\n\n2 - yes fully replace the current image"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Home page hero no longer references /assets/generated/spine-hero-v2.dim_1600x900.jpg",
-        "Hero uses a background-removed version of back_pain.png and displays correctly at common breakpoints (mobile, tablet, desktop) without distortion",
-        "Hero image loads without 404s in production build"
-      ]
-    },
-    {
-      "id": "REQ-34",
-      "text": "Adjust the Home page hero headline typography for the text “Experience personalized physiotherapy treatment that gets you back to doing what you love” to be less bold and include increased letter spacing so it does not look congested, while keeping strong readability/contrast.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "recent-messages"
-        ],
-        "quotes": [
-          "\"Experience personalized physiotherapy treatment that gets you back to doing what you love\"\n\nThis text looks conjusted I want to have a bit lesser bolder versoin of it and should have some letter spacing\n\n3 - yes headline"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Hero headline font weight is reduced from the current bold styling and letter-spacing is increased noticeably",
-        "Headline remains readable with sufficient contrast against the hero background across breakpoints",
-        "No other headings across the site are unintentionally changed by this adjustment"
-      ]
-    },
-    {
-      "id": "REQ-35",
-      "text": "Update the site’s displayed Google rating and review count to show 4.9 rating from 147 Google reviews wherever the aggregate rating is shown (including the Home page trust badge and LocalBusiness schema aggregateRating).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "recent-messages"
-        ],
-        "quotes": [
-          "my ratting is 4.9 by 147 Google reviews"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Home page trust badge shows “4.9 Rating” and “147 reviews” (or equivalent wording)",
-        "LocalBusiness JSON-LD aggregateRating outputs ratingValue \"4.9\" (or 4.9 formatted to one decimal) and reviewCount 147",
-        "No UI still shows the old computed values derived from the placeholder REVIEWS array"
-      ]
-    },
-    {
-      "id": "REQ-36",
-      "text": "Embed the provided Google Maps iframe in/around the Contact section (Contact page) and style it with responsive CSS so it works well on mobile without horizontal scrolling.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "recent-messages"
-        ],
-        "quotes": [
-          "I want map to be present on the site\n\nuse this iframe <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3717.9310106638054!2d72.96080567584603!3d21.27419827930238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa31c4a35e61fc015%3A0x623cd7f2c543bf6d!2sUtthan%20Physiotherapy%20Clinic!5e0!3m2!1sen!2sin!4v1754195623752!5m2!1sen!2sin\" width=\"800\" height=\"600\" style=\"border: 0\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>\n\nand adjust using css\n\n1 - can be somewhere around or in contact us section, if someone needs the direction"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Contact page includes the provided Google Maps embed pointing to Utthan Physiotherapy Clinic",
-        "Map is responsive (fills available width, maintains reasonable height, no horizontal overflow on small screens)",
-        "Map iframe keeps border:0, allowFullScreen, loading=\"lazy\", and referrerPolicy=\"no-referrer-when-downgrade\" (or equivalent React props)"
-      ]
-    },
-    {
-      "id": "REQ-37",
-      "text": "Remove the Facebook social icon/link from the site UI and ensure no Facebook URL remains in the canonical clinic social links data used by the footer/social components.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "recent-messages"
-        ],
-        "quotes": [
-          "also we are not on facebook so please remove the facebook icon"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Footer no longer renders a Facebook icon/link",
-        "No other page/header/footer renders a Facebook icon/link",
-        "CLINIC_INFO (or the shared clinic social links source) no longer contains an active facebook entry that could be rendered elsewhere"
+        "On all breakpoints, the header logo renders visually (no alt-text-only rendering) and links to `/`.",
+        "The header logo color is exactly the primary brand color (#2E0527) in normal/light mode.",
+        "The solution uses a themeable approach (e.g., `currentColor` / `text-primary` or equivalent) rather than an inline `color` style on an `<img>` element.",
+        "Only one canonical logo asset path is used by the header logo implementation, and it resolves without 404s in the deployed build."
       ]
     }
   ],
   "constraints": [
-    "Do not modify files under frontend/src/components/ui (compose them instead).",
-    "Do not modify immutable hook entry points: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx.",
-    "Keep backend as a single Motoko actor; do not add additional backend services."
+    "Do not modify any files under `frontend/src/components/ui` (shadcn UI sources are read-only).",
+    "Do not modify any files listed in `frontend.immutablePaths` from SYSTEM_CONTEXT.",
+    "Keep backend as a single Motoko actor; no backend changes are needed for this request."
   ],
   "nonGoals": [
-    "Do not add a contact form or email-sending backend; continue using mailto where applicable.",
-    "Do not introduce third-party auth providers beyond Internet Identity.",
-    "Do not change site routing/IA beyond what is necessary to implement the requested UI updates."
+    "No homepage/hero/layout redesign changes beyond what is necessary to update the header logo.",
+    "No changes to clinic content, SEO, services, reviews, or booking links as part of this request."
   ],
   "imageRequirements": {
-    "required": [
-      "Background-removed cutout of a person with lower back pain, transparent background (hero-back-pain-cutout.dim_1400x1400.png)"
-    ],
+    "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

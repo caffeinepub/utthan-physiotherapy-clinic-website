@@ -1,131 +1,32 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Use SVG logo, update hero visuals/typography, fix rating, embed Google Map, remove Facebook",
+  "title": "Themeable header logo using uploaded logo.svg (primary brand color)",
   "requirements": [
     {
-      "id": "REQ-32",
-      "summary": "Replace header text logo with a locally controlled SVG logo component that supports responsive sizing and brand-palette color theming.",
+      "id": "REQ-54",
+      "summary": "Update the header logo to use the uploaded logo.svg via a canonical asset path and render in primary brand color using a themeable currentColor/text-primary approach across breakpoints.",
       "acceptanceCriteria": [
-        "Header shows the SVG logo instead of the text-only “Utthan / Physiotherapy Clinic” logo block",
-        "Logo is visible and crisp on mobile and desktop and does not overflow the header layout",
-        "Logo styling (size/color) is controlled in-app (not hard-coded in the remote asset) and matches the site’s brand palette"
+        "On all breakpoints, the header logo renders visually (no alt-text-only rendering) and links to `/`.",
+        "The header logo color is exactly the primary brand color (#2E0527) in normal/light mode.",
+        "The solution uses a themeable approach (e.g., `currentColor` / `text-primary` or equivalent) rather than an inline `color` style on an `<img>` element.",
+        "Only one canonical logo asset path is used by the header logo implementation, and it resolves without 404s in the deployed build."
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/branding/UtthanLogo.tsx",
-          "operation": "create",
-          "description": "Create an inline-SVG React logo component based on https://utthan.vercel.app/assets/images/logo.svg, authored so fills/strokes use currentColor (or CSS variables) and size is controlled via props/className (responsive-friendly). Verify the component's usage instructions before implementing."
+          "operation": "modify",
+          "description": "Refactor UtthanLogo to render the uploaded logo.svg as a themeable graphic using currentColor (e.g., via the existing CSS mask approach) instead of a plain <img>, and ensure it supports applying `text-primary` for the exact #2E0527 color in light mode."
         },
         {
           "path": "frontend/src/components/layout/HeaderNav.tsx",
           "operation": "modify",
-          "description": "Replace the current text-only logo block with the new UtthanLogo component and apply responsive sizing/color classes so it fits within the header at mobile/desktop breakpoints. Verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-33",
-      "summary": "Replace the Home page hero image with the provided background-removed back pain cutout asset and ensure it renders responsively without distortion.",
-      "acceptanceCriteria": [
-        "Home page hero no longer references /assets/generated/spine-hero-v2.dim_1600x900.jpg",
-        "Hero uses a background-removed version of back_pain.png and displays correctly at common breakpoints (mobile, tablet, desktop) without distortion",
-        "Hero image loads without 404s in production build"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/public/assets/generated/hero-back-pain-cutout.dim_1400x1400.png",
-          "operation": "create",
-          "description": "Add the provided generated asset (transparent background cutout) to the project at the exact path so it can be referenced by the Home hero without remote dependencies."
+          "description": "Replace the inline-styled <img> logo with the UtthanLogo component, ensure the logo link navigates to `/`, and apply `text-primary` (and responsive sizing) so the logo is correctly colored and visible on both desktop and mobile; remove any inline `style={{ color: ... }}` usage."
         },
         {
-          "path": "frontend/src/pages/HomePage.tsx",
+          "path": "frontend/src/index.css",
           "operation": "modify",
-          "description": "Update the hero visual to use frontend/public/assets/generated/hero-back-pain-cutout.dim_1400x1400.png instead of /assets/generated/spine-hero-v2.dim_1600x900.jpg, and adjust layout/object-fit handling so the cutout scales well across breakpoints without distortion."
-        }
-      ]
-    },
-    {
-      "id": "REQ-34",
-      "summary": "Tweak the Home hero headline typography to be less bold and have increased letter spacing without affecting other site headings.",
-      "acceptanceCriteria": [
-        "Hero headline font weight is reduced from the current bold styling and letter-spacing is increased noticeably",
-        "Headline remains readable with sufficient contrast against the hero background across breakpoints",
-        "No other headings across the site are unintentionally changed by this adjustment"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/HomePage.tsx",
-          "operation": "modify",
-          "description": "Adjust only the hero headline (the H1 containing the provided text) to reduce font weight and increase tracking/letter-spacing while preserving strong contrast and readability across breakpoints."
-        }
-      ]
-    },
-    {
-      "id": "REQ-35",
-      "summary": "Set the displayed Google rating and review count to 4.9 from 147 reviews everywhere the aggregate rating is shown, including LocalBusiness JSON-LD.",
-      "acceptanceCriteria": [
-        "Home page trust badge shows “4.9 Rating” and “147 reviews” (or equivalent wording)",
-        "LocalBusiness JSON-LD aggregateRating outputs ratingValue \"4.9\" (or 4.9 formatted to one decimal) and reviewCount 147",
-        "No UI still shows the old computed values derived from the placeholder REVIEWS array"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/content/reviews.ts",
-          "operation": "modify",
-          "description": "Introduce exported constants for the public aggregate Google rating (4.9) and review count (147), and update any helper(s) used for aggregate display so they return these fixed values rather than computing from the placeholder REVIEWS array."
-        },
-        {
-          "path": "frontend/src/pages/HomePage.tsx",
-          "operation": "modify",
-          "description": "Update the trust badge to read from the fixed aggregate rating/review count source (not derived from the placeholder REVIEWS array) and ensure the displayed text matches 4.9 and 147."
-        },
-        {
-          "path": "frontend/src/lib/seoSchema.ts",
-          "operation": "modify",
-          "description": "Update LocalBusiness JSON-LD aggregateRating to output ratingValue \"4.9\" (formatted to one decimal) and reviewCount 147 using the same fixed aggregate rating source used by the UI."
-        }
-      ]
-    },
-    {
-      "id": "REQ-36",
-      "summary": "Embed the provided Google Maps iframe on the Contact page and style it to be responsive with no horizontal scrolling on mobile.",
-      "acceptanceCriteria": [
-        "Contact page includes the provided Google Maps embed pointing to Utthan Physiotherapy Clinic",
-        "Map is responsive (fills available width, maintains reasonable height, no horizontal overflow on small screens)",
-        "Map iframe keeps border:0, allowFullScreen, loading=\"lazy\", and referrerPolicy=\"no-referrer-when-downgrade\" (or equivalent React props)"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/contact/GoogleMapEmbed.tsx",
-          "operation": "create",
-          "description": "Create a small reusable component that renders the provided Google Maps iframe with the required attributes and a responsive wrapper (fluid width, constrained height, no horizontal overflow). Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/ContactPage.tsx",
-          "operation": "modify",
-          "description": "Place the GoogleMapEmbed component in/around the Contact section layout so users can view directions inline on the Contact page, ensuring responsive behavior on mobile. Verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-37",
-      "summary": "Remove the Facebook icon/link from the UI and eliminate Facebook from the shared clinic social links source so it cannot be rendered elsewhere.",
-      "acceptanceCriteria": [
-        "Footer no longer renders a Facebook icon/link",
-        "No other page/header/footer renders a Facebook icon/link",
-        "CLINIC_INFO (or the shared clinic social links source) no longer contains an active facebook entry that could be rendered elsewhere"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/lib/clinicInfo.ts",
-          "operation": "modify",
-          "description": "Remove the Facebook social link entry from the shared clinic social links data so it cannot be rendered by any social UI components."
-        },
-        {
-          "path": "frontend/src/components/layout/Footer.tsx",
-          "operation": "modify",
-          "description": "Remove the Facebook icon/link rendering (and related icon imports) from the footer social links so only valid social links remain."
+          "description": "Update the `.logo-themed` utility to use a single canonical logo asset path (aligning with the header logo implementation), ensuring it points to the uploaded `logo.svg` and remains themeable via `background-color: currentColor`."
         }
       ]
     }

@@ -16,8 +16,9 @@ export const CLINIC_INFO = {
     weekdays: 'Monday - Saturday: 9:00 AM - 7:00 PM',
     sunday: 'Sunday: 9:00 AM - 1:00 PM',
   },
-  calendlyUrl: 'https://calendly.com/utthan-physio/appointment',
+  calendlyUrl: 'https://calendly.com/utthan-health/30min',
   googleMapsUrl: 'https://maps.google.com/?q=Utthan+Physiotherapy+Clinic+Kamrej+Surat',
+  googleReviewsUrl: 'https://share.google/NWt2P0T87joSoAzaH',
   social: {
     instagram: 'https://instagram.com/utthan.physio',
   },

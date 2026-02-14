@@ -5,9 +5,6 @@ import { CLINIC_INFO, getFullAddress, getPhoneLink } from '@/lib/clinicInfo';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const appIdentifier = encodeURIComponent(
-    typeof window !== 'undefined' ? window.location.hostname : 'utthan-physio'
-  );
 
   return (
     <footer className="border-t border-border bg-primary text-primary-foreground">
@@ -117,15 +114,7 @@ export default function Footer() {
             © {currentYear} Utthan Physiotherapy Clinic. All rights reserved.
           </p>
           <p className="mt-2 flex items-center justify-center">
-            Built with <Heart className="mx-1 h-4 w-4 fill-secondary text-secondary" /> using{' '}
-            <a
-              href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${appIdentifier}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-1 font-medium text-secondary hover:text-secondary/80"
-            >
-              caffeine.ai
-            </a>
+            Built with <Heart className="mx-1 h-4 w-4 fill-secondary text-secondary" /> by Madhav Mansuriya
           </p>
         </div>
       </div>

@@ -1,91 +1,28 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-14T12:38:29.729Z",
+  "generatedAt": "2026-02-14T14:41:09.803Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 6,
-    "implemented": 6,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-32",
-        "summary": "Replace the text-only site logo in the header with the provided SVG logo from https://utthan.vercel.app/assets/images/logo.svg, ensuring the logo can be sized appropriately for desktop/mobile and its colors can be adjusted to match the site’s strict brand palette.",
+        "id": "REQ-54",
+        "summary": "Update the site header to use the uploaded `logo.svg` asset and ensure it renders in the primary brand color (#2E0527) on both desktop and mobile. The logo must render as an actual image/graphic (not alt text) and should not rely on inline `style={{ color: ... }}` on an `<img>` tag (since that does not theme most SVG images). Ensure the logo source path is consistent across the codebase (e.g., avoid mixing `/assets/logo.svg` and `/assets/images/logo.svg`) and that the rendered logo color follows `text-primary` / `currentColor` so it stays aligned with the theme.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/components/branding/UtthanLogo.tsx",
-          "frontend/src/components/layout/HeaderNav.tsx"
+          "frontend/src/components/layout/HeaderNav.tsx",
+          "frontend/src/index.css"
         ],
         "matchedFiles": [
           "frontend/src/components/branding/UtthanLogo.tsx",
-          "frontend/src/components/layout/HeaderNav.tsx"
-        ]
-      },
-      {
-        "id": "REQ-33",
-        "summary": "Update the Home page hero image to fully replace the current spine hero image with the provided image https://utthan.vercel.app/assets/images/back_pain.png, using a background-removed cutout version of that image as the hero visual.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/public/assets/generated/hero-back-pain-cutout.dim_1400x1400.png",
-          "frontend/src/pages/HomePage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/public/assets/generated/hero-back-pain-cutout.dim_1400x1400.png",
-          "frontend/src/pages/HomePage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-34",
-        "summary": "Adjust the Home page hero headline typography for the text “Experience personalized physiotherapy treatment that gets you back to doing what you love” to be less bold and include increased letter spacing so it does not look congested, while keeping strong readability/contrast.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/HomePage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/HomePage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-35",
-        "summary": "Update the site’s displayed Google rating and review count to show 4.9 rating from 147 Google reviews wherever the aggregate rating is shown (including the Home page trust badge and LocalBusiness schema aggregateRating).",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/content/reviews.ts",
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/src/lib/seoSchema.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/content/reviews.ts",
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/src/lib/seoSchema.ts"
-        ]
-      },
-      {
-        "id": "REQ-36",
-        "summary": "Embed the provided Google Maps iframe in/around the Contact section (Contact page) and style it with responsive CSS so it works well on mobile without horizontal scrolling.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/contact/GoogleMapEmbed.tsx",
-          "frontend/src/pages/ContactPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/contact/GoogleMapEmbed.tsx",
-          "frontend/src/pages/ContactPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-37",
-        "summary": "Remove the Facebook social icon/link from the site UI and ensure no Facebook URL remains in the canonical clinic social links data used by the footer/social components.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/lib/clinicInfo.ts",
-          "frontend/src/components/layout/Footer.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/lib/clinicInfo.ts",
-          "frontend/src/components/layout/Footer.tsx"
+          "frontend/src/components/layout/HeaderNav.tsx",
+          "frontend/src/index.css"
         ]
       }
     ]
@@ -95,16 +32,9 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/hero-back-pain-cutout.dim_1400x1400.png",
     "frontend/src/components/branding/UtthanLogo.tsx",
-    "frontend/src/components/contact/GoogleMapEmbed.tsx",
-    "frontend/src/components/layout/Footer.tsx",
     "frontend/src/components/layout/HeaderNav.tsx",
-    "frontend/src/content/reviews.ts",
-    "frontend/src/lib/clinicInfo.ts",
-    "frontend/src/lib/seoSchema.ts",
-    "frontend/src/pages/ContactPage.tsx",
-    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/index.css",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

@@ -2,7 +2,7 @@ export interface Review {
   id: string;
   author: string;
   rating: number;
-  date: string;
+  date?: string;
   text: string;
 }
 
@@ -13,49 +13,43 @@ export const GOOGLE_REVIEW_COUNT = 147;
 export const REVIEWS: Review[] = [
   {
     id: '1',
-    author: 'Rajesh Kumar',
+    author: 'Hanuwanth Singh',
     rating: 5,
-    date: '2024-01-15',
-    text: 'Excellent service! Dr. Priya helped me recover from a severe back injury. Her expertise and caring approach made all the difference. Highly recommend Utthan Physiotherapy!',
+    text: 'Dr. Roshni is an exceptional physiotherapist! Her expertise, warmth, and attention to detail made my treatment of Cervical a breeze. With a personalized approach and clear guidance, I felt supported every step of the way. Highly recommend for anyone seeking effective, compassionate care. Thank you, Dr. Roshni, for helping me get back on track! 🌟',
   },
   {
     id: '2',
-    author: 'Sneha Desai',
+    author: 'Bapodariya Manoj',
     rating: 5,
-    date: '2024-01-10',
-    text: 'I had been suffering from frozen shoulder for months. The treatment at Utthan was outstanding. Within a few weeks, I regained full mobility. Thank you so much!',
+    text: 'Very successful treatment leading to pain reduction and improved mobility, knowledgeable and caring providing personalised plans, excellent facilities with advanced equipment, and a positive, clean, and supportive environment. Many positive reviews mention immediate or quick results, effective home exercise plans, and physiotherapists who are passionate about patient progress. Very very satisfied with Utthan physiotherapists clinic…..Kamrej....Handle....By…..Dr..Roshani Mansuriya……',
   },
   {
     id: '3',
-    author: 'Amit Sharma',
+    author: 'SAUMIT FINCON SERVICES LLP',
     rating: 5,
-    date: '2024-01-05',
-    text: 'As an athlete, I needed specialized care for my sports injury. Dr. Rahul\'s sports rehabilitation program got me back on the field faster than I expected. Professional and effective!',
+    text: 'My son Mihar was diagnosed with GBS. With the help of utthan physiotherapy, he has recovered almost 100 %. The physiotherapy sessions were very effective, and the therapist was patient, caring, and dedicated. We are truly thankful for the amazing support and guidance.',
   },
   {
     id: '4',
-    author: 'Priya Joshi',
+    author: 'Bhargav Gauswami',
     rating: 5,
-    date: '2023-12-28',
-    text: 'Dr. Anjali was wonderful during my postpartum recovery. She understood my concerns and created a personalized program that helped me regain my strength. Grateful for her care!',
+    text: 'My mother had pain in her lower back and hand. We visited Roshani Ma\'am\'s Physiotherapy Center in Kamrej, where we received clear guidance and excellent treatment. After 15 days of exercises, she got 100% relief. Thank you for the professional and supportive care!',
   },
   {
     id: '5',
-    author: 'Vikram Patel',
+    author: 'Hiren Patel',
     rating: 5,
-    date: '2023-12-20',
-    text: 'Best physiotherapy clinic in Kamrej, Surat! The staff is professional, the facility is clean, and the treatment is effective. I\'ve seen significant improvement in my chronic back pain.',
+    text: 'Excellent treatment, great environment, patients centered approach, experienced doctor she has a good treatment plan and good behavior',
   },
   {
     id: '6',
-    author: 'Meera Shah',
+    author: 'Jitendrasinh Parmar',
     rating: 5,
-    date: '2023-12-15',
-    text: 'After my knee surgery, I was worried about recovery. The team at Utthan provided excellent post-surgical physiotherapy. I\'m now walking without pain. Thank you!',
+    text: 'Very good physiotherapy clinic, helped me with my frozen shoulder treatment with quick recovery. Highly recommend!',
   },
 ];
 
-// Legacy helper functions (kept for backward compatibility with placeholder reviews)
+// Legacy helper functions (kept for backward compatibility)
 export function getAverageRating(): number {
   if (REVIEWS.length === 0) return 0;
   const sum = REVIEWS.reduce((acc, review) => acc + review.rating, 0);
