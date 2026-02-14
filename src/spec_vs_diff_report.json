@@ -1,0 +1,49 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-14T12:38:29.725Z",
+  "summary": "Diff implements Google rating constants and schema updates, removes Facebook from clinic social data and footer UI, adds a responsive Google Maps embed component (and imports it on Contact page), and changes the header to use a new UtthanLogo component. However, the logo implementation appears to be a newly created inline SVG rather than the provided remote logo.svg, and there’s no concrete diff evidence that the required background-removed hero cutout image asset is added/used as specified.",
+  "missing_requirements": [
+    {
+      "id": "REQ-32",
+      "requirement": "Replace the text-only site logo in the header with the provided SVG logo from https://utthan.vercel.app/assets/images/logo.svg, with in-app control over sizing and colors.",
+      "reason": "Header now uses a new UtthanLogo component, but the added SVG appears to be a newly authored design (circle + stick figure + text) rather than the provided logo.svg asset. No evidence of fetching/embedding the provided SVG file contents.",
+      "evidence": [
+        "frontend/src/components/branding/UtthanLogo.tsx",
+        "frontend/src/components/layout/HeaderNav.tsx"
+      ]
+    },
+    {
+      "id": "REQ-33",
+      "requirement": "Replace the Home page hero image with a background-removed cutout version of back_pain.png (hero-back-pain-cutout.dim_1400x1400.png) and ensure no reference to the old spine hero remains.",
+      "reason": "The HomePage diff shown is truncated before any hero image markup, and the diff summary does not show any added image asset file or an explicit reference to the required cutout filename/URL. Therefore, there is insufficient evidence that the specified cutout image is actually used and will not 404 in production.",
+      "evidence": [
+        "frontend/src/pages/HomePage.tsx",
+        "frontend-file-summaries.txt"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Introduced a custom, newly designed inline SVG logo component (circle/person icon plus text) rather than using the provided remote SVG (logo.svg).",
+      "reason": "BuildRequest explicitly calls for using the provided SVG logo from the given URL; the diff adds a bespoke SVG implementation that may not match the provided asset.",
+      "evidence": [
+        "frontend/src/components/branding/UtthanLogo.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.63,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/branding/UtthanLogo.tsx",
+    "frontend/src/components/contact/GoogleMapEmbed.tsx",
+    "frontend/src/components/layout/Footer.tsx",
+    "frontend/src/components/layout/HeaderNav.tsx",
+    "frontend/src/content/reviews.ts",
+    "frontend/src/lib/clinicInfo.ts",
+    "frontend/src/lib/seoSchema.ts",
+    "frontend/src/pages/ContactPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "project_state.json"
+  ]
+}

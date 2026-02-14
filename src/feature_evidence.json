@@ -1,0 +1,118 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-replace-the-text-only-site-logo-in-the-header-with-the-provided-svg-logo-from-https-utthan-vercel-app-assets-images-logo-svg-ensuring-the-logo-can-be-sized-appropriately-for-desktop-mobile-and-its-colors-can-be-adjusted-to-match-the-site-s-strict-brand-palette",
+      "featureTitle": "Replace the text-only site logo in the header with the provided SVG logo from https://utthan.vercel.app/assets/images/logo.svg, ensuring the logo can be sized appropriately for desktop/mobile and its colors can be adjusted to match the site’s strict brand palette.",
+      "files": [
+        "frontend/src/components/branding/UtthanLogo.tsx",
+        "frontend/src/components/layout/HeaderNav.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-32"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-home-page-hero-image-to-fully-replace-the-current-spine-hero-image-with-the-provided-image-https-utthan-vercel-app-assets-images-back-pain-png-using-a-background-removed-cutout-version-of-that-image-as-the-hero-visual",
+      "featureTitle": "Update the Home page hero image to fully replace the current spine hero image with the provided image https://utthan.vercel.app/assets/images/back_pain.png, using a background-removed cutout version of that image as the hero visual.",
+      "files": [
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-33"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-adjust-the-home-page-hero-headline-typography-for-the-text-experience-personalized-physiotherapy-treatment-that-gets-you-back-to-doing-what-you-love-to-be-less-bold-and-include-increased-letter-spacing-so-it-does-not-look-congested-while-keeping-strong-readability-contrast",
+      "featureTitle": "Adjust the Home page hero headline typography for the text “Experience personalized physiotherapy treatment that gets you back to doing what you love” to be less bold and include increased letter spacing so it does not look congested, while keeping strong readability/contrast.",
+      "files": [
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-34"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-site-s-displayed-google-rating-and-review-count-to-show-4-9-rating-from-147-google-reviews-wherever-the-aggregate-rating-is-shown-including-the-home-page-trust-badge-and-localbusiness-schema-aggregaterating",
+      "featureTitle": "Update the site’s displayed Google rating and review count to show 4.9 rating from 147 Google reviews wherever the aggregate rating is shown (including the Home page trust badge and LocalBusiness schema aggregateRating).",
+      "files": [
+        "frontend/src/content/reviews.ts",
+        "frontend/src/lib/seoSchema.ts",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-35"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-embed-the-provided-google-maps-iframe-in-around-the-contact-section-contact-page-and-style-it-with-responsive-css-so-it-works-well-on-mobile-without-horizontal-scrolling",
+      "featureTitle": "Embed the provided Google Maps iframe in/around the Contact section (Contact page) and style it with responsive CSS so it works well on mobile without horizontal scrolling.",
+      "files": [
+        "frontend/src/components/contact/GoogleMapEmbed.tsx",
+        "frontend/src/pages/ContactPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-36"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-remove-the-facebook-social-icon-link-from-the-site-ui-and-ensure-no-facebook-url-remains-in-the-canonical-clinic-social-links-data-used-by-the-footer-social-components",
+      "featureTitle": "Remove the Facebook social icon/link from the site UI and ensure no Facebook URL remains in the canonical clinic social links data used by the footer/social components.",
+      "files": [
+        "frontend/src/components/layout/Footer.tsx",
+        "frontend/src/lib/clinicInfo.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-37"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

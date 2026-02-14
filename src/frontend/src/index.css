@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Utthan Brand Palette - OKLCH values only (no function wrapper) */
+    --primary: 0.22 0.08 330; /* #2E0527 - Deep plum */
+    --primary-foreground: 0.98 0.01 330; /* Light text on primary */
+    
+    --secondary: 0.42 0.12 330; /* #681259 - Rich purple */
+    --secondary-foreground: 0.98 0.01 330; /* Light text on secondary */
+    
+    --accent: 0.72 0.02 330; /* #B0A8B3 - Soft mauve */
+    --accent-foreground: 0.22 0.08 330; /* Dark text on accent */
+    
+    --muted: 0.86 0.01 330; /* #D8CED4 - Pale lavender */
+    --muted-foreground: 0.45 0.02 330; /* Medium text on muted */
+    
+    --background: 0.99 0.00 330; /* #F8F8F8 - Off-white */
+    --foreground: 0.22 0.08 330; /* Primary text color */
+    
+    --card: 1.00 0.00 0; /* Pure white for cards */
+    --card-foreground: 0.22 0.08 330;
+    
+    --popover: 1.00 0.00 0;
+    --popover-foreground: 0.22 0.08 330;
+    
+    --border: 0.86 0.01 330; /* Muted border */
+    --input: 0.86 0.01 330;
+    --ring: 0.42 0.12 330; /* Secondary for focus rings */
+    
+    --radius: 0.75rem;
+    
+    /* Semantic colors */
+    --success: 0.65 0.15 145;
+    --success-foreground: 0.98 0.01 145;
+    
+    --warning: 0.75 0.15 85;
+    --warning-foreground: 0.25 0.08 85;
+    
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0.01 25;
+  }
+
+  .dark {
+    --primary: 0.42 0.12 330; /* Lighter in dark mode */
+    --primary-foreground: 0.98 0.01 330;
+    
+    --secondary: 0.52 0.12 330;
+    --secondary-foreground: 0.98 0.01 330;
+    
+    --accent: 0.62 0.04 330;
+    --accent-foreground: 0.98 0.01 330;
+    
+    --muted: 0.30 0.02 330;
+    --muted-foreground: 0.70 0.02 330;
+    
+    --background: 0.15 0.02 330;
+    --foreground: 0.98 0.01 330;
+    
+    --card: 0.18 0.02 330;
+    --card-foreground: 0.98 0.01 330;
+    
+    --popover: 0.18 0.02 330;
+    --popover-foreground: 0.98 0.01 330;
+    
+    --border: 0.30 0.02 330;
+    --input: 0.30 0.02 330;
+    --ring: 0.52 0.12 330;
+    
+    --success: 0.65 0.15 145;
+    --success-foreground: 0.15 0.08 145;
+    
+    --warning: 0.75 0.15 85;
+    --warning-foreground: 0.25 0.08 85;
+    
+    --destructive: 0.60 0.22 25;
+    --destructive-foreground: 0.98 0.01 25;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    @apply bg-background text-foreground;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+  
+  .btn-hover {
+    @apply transition-all duration-200 hover:scale-105;
+  }
+  
+  .mobile-safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
