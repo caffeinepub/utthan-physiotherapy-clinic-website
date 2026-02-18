@@ -1,10 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Remove the duplicate logo from the mobile navigation menu and ensure the header logo renders in color `#70316c` using the existing `logo.svg` asset.
+**Goal:** Replace the "Who We Are" section image for Dr. Roshani Mansuriya with the uploaded banner image while preserving the current layout and styling.
 
 **Planned changes:**
-- Update the mobile navigation panel/menu to not render any logo when the hamburger menu is opened (logo remains only in the main header).
-- Adjust header logo rendering so its displayed color is exactly `#70316c` across both desktop header and mobile header top bar, without recoloring other UI elements.
+- Update the image source used by the existing `<img>` element with alt text exactly `Dr. Roshani Mansuriya - Utthan Physiotherapy Clinic` in `frontend/src/components/home/WhoWeAreSection.tsx` to use `dr-banner.jpg`.
+- Keep the current markup structure, Tailwind classes, and the `<img>` alt text unchanged.
 
-**User-visible outcome:** On mobile, opening the hamburger menu shows no logo inside the menu panel, while the top header still shows a clickable logo that matches color `#70316c` on both mobile and desktop.
+**User-visible outcome:** The "Who We Are" section displays the new `dr-banner.jpg` image in the same position and with the same styling as before.

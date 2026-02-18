@@ -11,7 +11,7 @@ export default function WhoWeAreSection() {
           <div className="relative order-2 lg:order-1">
             <div className="relative overflow-hidden rounded-3xl shadow-2xl">
               <img
-                src="https://utthan.vercel.app/assets/images/dr-banner.jpg"
+                src="/assets/dr-banner.jpg"
                 alt="Dr. Roshani Mansuriya - Utthan Physiotherapy Clinic"
                 className="h-full w-full object-cover"
               />

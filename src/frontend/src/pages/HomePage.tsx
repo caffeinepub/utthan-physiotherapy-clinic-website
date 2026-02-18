@@ -6,6 +6,7 @@ import BookAppointmentButton from '@/components/cta/BookAppointmentButton';
 import MobileStickyBookingCta from '@/components/cta/MobileStickyBookingCta';
 import ServiceCard from '@/components/services/ServiceCard';
 import WhoWeAreSection from '@/components/home/WhoWeAreSection';
+import PrideMomentsSection from '@/components/home/PrideMomentsSection';
 import Seo from '@/components/seo/Seo';
 import { getLocalBusinessSchema } from '@/lib/seoSchema';
 import { CLINIC_CONTENT } from '@/content/clinicContent';
@@ -194,6 +195,9 @@ export default function HomePage() {
 
       {/* Who We Are Section */}
       <WhoWeAreSection />
+
+      {/* Pride Moments Section */}
+      <PrideMomentsSection />
 
       {/* Testimonials Preview */}
       <section className="py-20 lg:py-32">

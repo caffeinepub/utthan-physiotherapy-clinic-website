@@ -15,8 +15,8 @@
   "frontend/src/components/cta/MobileStickyBookingCta.tsx": "Mobile sticky CTA with secondary variant, safe-area-inset handling, and enhanced shadow for visibility.",
   "frontend/src/components/seo/Seo.tsx": "SEO component that dynamically sets document title, meta description, and injects JSON-LD structured data for each page.",
   "frontend/src/lib/seoSchema.ts": "Schema.org JSON-LD generators updated to use GOOGLE_RATING and GOOGLE_REVIEW_COUNT constants for LocalBusiness aggregateRating.",
-  "frontend/src/pages/HomePage.tsx": "Homepage with hero, trust badges, why choose us, services, stats, who we are section, testimonials preview with mobile-safe overflow handling (min-w-0 on cards and break-word on text), and final CTA.",
-  "frontend/src/pages/AboutPage.tsx": "About page with hero, our story section displaying unnamed.webp, mission & vision cards, who we are section, core values grid (4 values from CLINIC_CONTENT.about.values), and CTA section.",
+  "frontend/src/pages/HomePage.tsx": "Homepage with hero, trust badges, why choose us, services, stats, who we are section, Pride Moments section, testimonials preview, and final CTA with mobile sticky booking button.",
+  "frontend/src/pages/AboutPage.tsx": "About page with scroll-to-top effect on mount, hero section, our story with image, mission & vision cards, who we are section, core values grid, and CTA section.",
   "frontend/src/pages/ServicesPage.tsx": "Services page SEO updated to reference Kamrej, Surat in meta description.",
   "frontend/src/pages/ServiceDetailPage.tsx": "Service detail page with hero icon badge, full-width service image, benefit/who-it's-for cards with brand styling, and gradient CTA card.",
   "frontend/src/pages/ConditionsPage.tsx": "Conditions page listing all treatable conditions with descriptions, symptoms, and treatment approaches in expandable cards.",
@@ -33,7 +33,10 @@
   "frontend/src/components/branding/UtthanLogo.tsx": "Logo component that renders the uploaded logo.svg as a standard img element with the utthan-logo-brand CSS class applied to color it exactly #70316c, supporting responsive sizing via className prop and proper accessibility attributes.",
   "frontend/src/components/contact/GoogleMapEmbed.tsx": "Reusable responsive Google Maps iframe component with proper aspect ratio, accessibility attributes, and rounded styling.",
   "frontend/public/assets/images/logo.svg": "SVG logo asset with themeable currentColor fills and strokes, containing the Utthan brand mark (person icon in upward stretch position) and text lockup with clinic name and subtitle for use across the site.",
-  "frontend/src/components/home/WhoWeAreSection.tsx": "Home page section component that renders the \"Who are we?\" heading with user-provided copy about the clinic's services and philosophy, Dr. Roshani Mansuriya's signature message, the dr-banner image, and a CTA button linking to the About page.",
+  "frontend/src/components/home/WhoWeAreSection.tsx": "Home page section component rendering \"Who are we?\" content with the uploaded dr-banner.jpg professional photo of Dr. Roshani Mansuriya, clinic philosophy text, signature message, and CTA button to About page.",
   "frontend/public/assets/logo.svg": "SVG logo asset with Utthan brand mark (person in upward stretch position) and text lockup, using currentColor for themeable rendering via CSS mask technique.",
-  "frontend/public/assets/image-1.png": "Clinic interior photo showing treatment facility with physiotherapy equipment and treatment beds."
+  "frontend/public/assets/image-1.png": "Clinic interior photo showing treatment facility with physiotherapy equipment and treatment beds.",
+  "frontend/index.html": "HTML entry point with favicon link added to the head section for proper browser tab icon display.",
+  "frontend/src/content/prideMoments.ts": "Static content module containing Pride Moments section data including title, subtitle, description, and array of 5 photos with captions and alt text for accessibility.",
+  "frontend/src/components/home/PrideMomentsSection.tsx": "Pride Moments section component that renders a responsive grid gallery of clinic milestone photos using Card components with hover effects and proper image aspect ratios."
 }

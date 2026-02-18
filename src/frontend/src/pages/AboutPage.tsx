@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from '@tanstack/react-router';
 import { ArrowRight, Heart, Users, Award, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -8,6 +9,10 @@ import { getLocalBusinessSchema } from '@/lib/seoSchema';
 import { CLINIC_CONTENT } from '@/content/clinicContent';
 
 export default function AboutPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Seo
@@ -114,13 +119,9 @@ export default function AboutPage() {
               {CLINIC_CONTENT.whoWeAre.features.map((feature, index) => (
                 <Card key={index} className="border-2 bg-card transition-all hover:border-secondary/50 hover:shadow-xl">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-3 text-xl text-primary">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-secondary/10">
-                        {index === 0 ? (
-                          <Target className="h-6 w-6 text-secondary" />
-                        ) : (
-                          <Users className="h-6 w-6 text-secondary" />
-                        )}
+                    <CardTitle className="flex items-center gap-3 text-lg text-primary">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary/10">
+                        {index === 0 ? <Heart className="h-5 w-5 text-secondary" /> : <Users className="h-5 w-5 text-secondary" />}
                       </div>
                       {feature.title}
                     </CardTitle>
@@ -135,7 +136,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Values */}
+      {/* Core Values */}
       <section className="bg-accent/20 py-20 lg:py-32">
         <div className="container">
           <div className="mb-16 text-center">
@@ -143,18 +144,15 @@ export default function AboutPage() {
               Our Core Values
             </h2>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground lg:text-xl">
-              The principles that guide everything we do at Utthan.
+              The principles that guide everything we do at Utthan Physiotherapy.
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {CLINIC_CONTENT.about.values.map((value, index) => (
-              <Card key={index} className="group border-2 bg-card transition-all hover:border-secondary/50 hover:shadow-xl">
+              <Card key={index} className="border-2 bg-card text-center transition-all hover:border-secondary/50 hover:shadow-xl">
                 <CardHeader>
-                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-secondary/10 transition-colors group-hover:bg-secondary/20">
-                    {index === 0 && <Heart className="h-8 w-8 text-secondary" />}
-                    {index === 1 && <Award className="h-8 w-8 text-secondary" />}
-                    {index === 2 && <Users className="h-8 w-8 text-secondary" />}
-                    {index === 3 && <Target className="h-8 w-8 text-secondary" />}
+                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-secondary/10">
+                    <CheckCircle className="h-8 w-8 text-secondary" />
                   </div>
                   <CardTitle className="text-xl text-primary">{value.title}</CardTitle>
                 </CardHeader>
@@ -174,14 +172,15 @@ export default function AboutPage() {
             <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               Ready to Experience the Utthan Difference?
             </h2>
-            <p className="mb-8 text-xl leading-relaxed text-primary-foreground/90 lg:text-2xl">
-              Book your appointment today and take the first step towards better health.
+            <p className="mb-8 text-xl leading-relaxed opacity-90 lg:text-2xl">
+              Join hundreds of satisfied patients who have found relief and recovery with our expert care.
             </p>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <BookAppointmentButton size="lg" variant="secondary" />
-              <Button asChild size="lg" variant="outline" className="border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10">
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+              <BookAppointmentButton size="lg" variant="secondary" className="shadow-xl" />
+              <Button size="lg" variant="outline" className="border-2 border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
                 <Link to="/contact">
-                  Contact Us <ArrowRight className="ml-2 h-5 w-5" />
+                  Contact Us
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -189,5 +188,25 @@ export default function AboutPage() {
         </div>
       </section>
     </>
+  );
+}
+
+function CheckCircle({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+      <polyline points="22 4 12 14.01 9 11.01" />
+    </svg>
   );
 }

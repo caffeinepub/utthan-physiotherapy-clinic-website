@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-remove-the-logo-from-the-mobile-menu-so-the-logo-appears-only-in-the-main-site-header-do-not-render-any-logo-inside-the-opened-mobile-navigation-panel-menu",
-      "featureTitle": "Remove the logo from the mobile menu so the logo appears only in the main site header (do not render any logo inside the opened mobile navigation panel/menu).",
+      "featureId": "feature-replace-the-existing-image-used-by-the-img-element-whose-alt-text-is-exactly-dr-roshani-mansuriya-utthan-physiotherapy-clinic-with-the-uploaded-file-dr-banner-jpg-keeping-the-same-placement-and-existing-css-layout",
+      "featureTitle": "Replace the existing image used by the <img> element whose alt text is exactly \"Dr. Roshani Mansuriya - Utthan Physiotherapy Clinic\" with the uploaded file dr-banner.jpg, keeping the same placement and existing CSS/layout.",
       "files": [
-        "frontend/src/components/layout/HeaderNav.tsx"
+        "frontend/src/components/home/WhoWeAreSection.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,27 +15,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-65"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-ensure-the-header-logo-is-colored-exactly-70316c-everywhere-it-appears-in-the-header-desktop-header-and-mobile-header-top-bar-using-the-same-uploaded-logo-svg-asset",
-      "featureTitle": "Ensure the header logo is colored exactly #70316c everywhere it appears in the header (desktop header and mobile header top bar), using the same uploaded logo.svg asset.",
-      "files": [
-        "frontend/src/components/branding/UtthanLogo.tsx",
-        "frontend/src/components/layout/HeaderNav.tsx",
-        "frontend/src/index.css"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-66"
+        "REQ-1"
       ],
       "confidence": "high"
     }

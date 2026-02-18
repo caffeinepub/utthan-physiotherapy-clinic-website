@@ -1,58 +1,34 @@
 {
   "kind": "build_request",
-  "title": "Remove logo from mobile menu and recolor header logo to #70316c",
+  "title": "Replace Who We Are section image with uploaded dr-banner.jpg",
+  "projectName": "Utthan Clinic",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-65",
-      "text": "Remove the logo from the mobile menu so the logo appears only in the main site header (do not render any logo inside the opened mobile navigation panel/menu).",
+      "id": "REQ-1",
+      "text": "Replace the existing image used by the <img> element whose alt text is exactly \"Dr. Roshani Mansuriya - Utthan Physiotherapy Clinic\" with the uploaded file dr-banner.jpg, keeping the same placement and existing CSS/layout.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "recent-messages-4",
-          "recent-messages-5"
+          "msg-4"
         ],
         "quotes": [
-          "remove logo from menu and just keep it in header",
-          "1 remove from menu, it should be just in header"
+          "1 - where the  alt=\"Dr. Roshani Mansuriya - Utthan Physiotherapy Clinic\"\n2 - replcae the image \n3 - just add the image everythig will be taken care by the exisitng css"
         ]
       },
       "acceptanceCriteria": [
-        "On mobile, opening the hamburger menu does not show any logo within the menu panel (no top bar logo, no duplicate logo).",
-        "The site header (top bar) still displays the logo and remains clickable to navigate to Home.",
-        "Desktop header continues to display the logo as before."
-      ]
-    },
-    {
-      "id": "REQ-66",
-      "text": "Ensure the header logo is colored exactly #70316c everywhere it appears in the header (desktop header and mobile header top bar), using the same uploaded logo.svg asset.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "recent-messages-4",
-          "recent-messages-5"
-        ],
-        "quotes": [
-          "and logo should be colored with #70316c",
-          "2 yes",
-          "3 yes"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The rendered logo color in the header matches exactly #70316c (visually and via computed styles where applicable).",
-        "No other UI elements are unintentionally recolored when applying the logo color.",
-        "The logo continues to render as a graphic (not alt text) and uses the same logo.svg asset path consistently."
+        "The image rendered by the <img> with alt=\"Dr. Roshani Mansuriya - Utthan Physiotherapy Clinic\" (in frontend/src/components/home/WhoWeAreSection.tsx) displays dr-banner.jpg instead of the previous asset.",
+        "No Tailwind classes, layout structure, or surrounding markup are changed (CSS behavior remains as-is).",
+        "The <img> alt text remains unchanged."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/components/ui (shadcn components are read-only).",
-    "Do not edit any frontend immutablePaths listed in SYSTEM_CONTEXT (compose instead).",
-    "Backend must remain single-actor; no backend changes are required for this request."
+    "Do not modify existing CSS/classes/layout; only swap the image asset or its reference for the targeted <img> element."
   ],
   "nonGoals": [
-    "Do not change navigation labels, routes, or page structure.",
-    "Do not redesign the header layout beyond removing the mobile menu logo and adjusting logo color."
+    "Changing any other images on the site (e.g., Home hero image, About page story image).",
+    "Introducing new styling, responsive behavior, or layout changes."
   ],
   "imageRequirements": {
     "required": [],

@@ -1,26 +1,29 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-14T17:42:41.410Z",
-  "summary": "REQ-65 appears implemented: the mobile navigation panel no longer renders any logo, while the header still shows a clickable logo linking to Home. REQ-66 is not clearly satisfied because the logo color is applied via a CSS filter on an <img> (logo.svg), which does not guarantee an exact #70316c color in computed styles.",
-  "missing_requirements": [
+  "generatedAt": "2026-02-18T06:04:44.383Z",
+  "summary": "REQ-1 appears implemented: the <img> in WhoWeAreSection.tsx keeps the same alt text and className while swapping the src to /assets/dr-banner.jpg. However, additional unrelated files were modified beyond the requested single-image swap constraint.",
+  "missing_requirements": [],
+  "hallucinated_features": [
     {
-      "id": "REQ-66",
-      "requirement": "Ensure the header logo is colored exactly #70316c everywhere it appears in the header (desktop header and mobile header top bar), using the same uploaded logo.svg asset.",
-      "reason": "The diff applies a CSS `filter` (`.utthan-logo-brand`) to an `<img src=\"/assets/logo.svg\">`. Filters can visually approximate a target color but generally do not make the rendered graphic's color computably equal to an exact hex value (#70316c), and may vary by browser/rendering. No evidence of editing the SVG to use #70316c or using an inline SVG with `fill`/`stroke` set to #70316c.",
+      "description": "Modified project tracking/state metadata (project_state.json) unrelated to swapping the WhoWeAreSection image.",
+      "reason": "BuildRequest only asked to swap the image (asset/reference) for a specific <img> without other changes; updating project state metadata was not requested.",
       "evidence": [
-        "frontend/src/components/branding/UtthanLogo.tsx",
-        "frontend/src/index.css"
+        "project_state.json"
+      ]
+    },
+    {
+      "description": "Modified frontend-file-summaries.txt content describing many unrelated app changes (routing, SEO, content, layout, assets).",
+      "reason": "BuildRequest non-goals explicitly disallow changing other images/styling/layout; while this file may be a summary artifact, it is a modified file not requested as part of the image swap.",
+      "evidence": [
+        "frontend-file-summaries.txt"
       ]
     }
   ],
-  "hallucinated_features": [],
   "confidence": 0.74,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/components/branding/UtthanLogo.tsx",
-    "frontend/src/components/layout/HeaderNav.tsx",
-    "frontend/src/index.css",
+    "frontend/src/components/home/WhoWeAreSection.tsx",
     "project_state.json"
   ]
 }
