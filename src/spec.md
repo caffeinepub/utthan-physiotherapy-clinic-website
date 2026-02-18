@@ -1,10 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Replace the "Who We Are" section image for Dr. Roshani Mansuriya with the uploaded banner image while preserving the current layout and styling.
+**Goal:** Use the 5 uploaded photos as the Pride Moments carousel images on the Utthan Clinic Site.
 
 **Planned changes:**
-- Update the image source used by the existing `<img>` element with alt text exactly `Dr. Roshani Mansuriya - Utthan Physiotherapy Clinic` in `frontend/src/components/home/WhoWeAreSection.tsx` to use `dr-banner.jpg`.
-- Keep the current markup structure, Tailwind classes, and the `<img>` alt text unchanged.
+- Add the uploaded images (im1-3.jpg, im2-3.jpg, im1-4.jpg, im2-4.jpg, im1-5.jpg) to the frontend static assets so they are available at predictable /assets/* URLs.
+- Update `frontend/src/content/prideMoments.ts` to reference exactly these 5 images (`/assets/im1-3.jpg`, `/assets/im2-3.jpg`, `/assets/im1-4.jpg`, `/assets/im2-4.jpg`, `/assets/im1-5.jpg`) with meaningful English alt text for each slide.
+- Ensure the Pride Moments carousel remains manual-only (no auto-advance) with working previous/next controls and indicator dots that allow navigating all 5 images with wrap-around.
 
-**User-visible outcome:** The "Who We Are" section displays the new `dr-banner.jpg` image in the same position and with the same styling as before.
+**User-visible outcome:** The Pride Moments section shows a 5-slide, manually navigable carousel using the newly uploaded event photos, and each image loads correctly via its static asset URL.

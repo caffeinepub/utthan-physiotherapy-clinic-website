@@ -3,14 +3,16 @@
   "projectStateVersion": 3,
   "summary": "New project",
   "architectural_notes": [],
-  "known_issues": [],
-  "isFixRequest": false,
+  "known_issues": [
+    "Carousel currently shows only one image even though multiple images were uploaded; should allow manual navigation through all provided images"
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
-      "id": "feature-replace-the-existing-image-used-by-the-img-element-whose-alt-text-is-exactly-dr-roshani-mansuriya-utthan-physiotherapy-clinic-with-the-uploaded-file-dr-banner-jpg-keeping-the-same-placement-and-existing-css-layout",
-      "title": "Replace the existing image used by the <img> element whose alt text is exactly \"Dr. Roshani Mansuriya - Utthan Physiotherapy Clinic\" with the uploaded file dr-banner.jpg, keeping the same placement and existing CSS/layout.",
+      "id": "feature-update-pride-moments-content-to-use-the-uploaded-images-in-the-carousel-by-replacing-the-existing-pride-moments-event-image-sources-with-assets-im1-3-jpg-assets-im2-3-jpg-assets-im1-4-jpg-assets-im2-4-jpg-and-assets-im1-5-jpg-keeping-meaningful-english-alt-text-for-each-image",
+      "title": "Update Pride Moments content to use the uploaded images in the carousel by replacing the existing Pride Moments event image sources with /assets/im1-3.jpg, /assets/im2-3.jpg, /assets/im1-4.jpg, /assets/im2-4.jpg, and /assets/im1-5.jpg (keeping meaningful English alt text for each image).",
       "reqIds": [
-        "REQ-1"
+        "REQ-2"
       ],
       "version": 1
     }
@@ -18,12 +20,28 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Replace the existing image with alt=\"Dr. Roshani Mansuriya - Utthan Physiotherapy Clinic\" with dr-banner.jpg, keeping the same placement and existing CSS/layout.",
+      "summary": "Update carousel to manually navigate through multiple uploaded images (im1–im4/5) instead of showing only one image",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add the 5 user-uploaded images (im1-3.jpg, im2-3.jpg, im1-4.jpg, im2-4.jpg, im1-5.jpg) to the frontend static assets so they can be referenced by the Pride Moments carousel.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Ensure the Pride Moments carousel remains fully manual (no auto-advance) and users can navigate through all provided images using previous/next buttons and indicators.",
+      "reqIds": [
+        "REQ-3"
+      ],
       "status": "pending"
     }
   ],
-  "projectName": "Utthan Clinic",
+  "projectName": "Utthan Clinic Site",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

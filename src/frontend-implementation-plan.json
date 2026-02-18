@@ -1,26 +1,73 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Swap Who We Are section image to dr-banner.jpg (Utthan Clinic)",
+  "title": "Use uploaded images in Pride Moments carousel",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Replace the Who We Are section <img> (alt exactly \"Dr. Roshani Mansuriya - Utthan Physiotherapy Clinic\") source to use the uploaded dr-banner.jpg without changing any layout/CSS or alt text.",
+      "summary": "Add the 5 uploaded Pride Moments images as frontend static assets under the public assets folder.",
       "acceptanceCriteria": [
-        "The image rendered by the <img> with alt=\"Dr. Roshani Mansuriya - Utthan Physiotherapy Clinic\" (in frontend/src/components/home/WhoWeAreSection.tsx) displays dr-banner.jpg instead of the previous asset.",
-        "No Tailwind classes, layout structure, or surrounding markup are changed (CSS behavior remains as-is).",
-        "The <img> alt text remains unchanged."
+        "The files im1-3.jpg, im2-3.jpg, im1-4.jpg, im2-4.jpg, and im1-5.jpg exist in the built frontend as static assets (e.g., under frontend/public/assets/).",
+        "All 5 images can be loaded directly via their asset URLs in the browser without 404 errors."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/dr-banner.jpg",
+          "path": "frontend/public/assets/im1-3.jpg",
           "operation": "create",
-          "description": "Add the uploaded dr-banner.jpg to the public assets directory so it can be referenced by the existing <img> without changing layout/CSS."
+          "description": "Add the uploaded image file as a static asset so it is served by the frontend build at /assets/im1-3.jpg."
         },
         {
-          "path": "frontend/src/components/home/WhoWeAreSection.tsx",
+          "path": "frontend/public/assets/im2-3.jpg",
+          "operation": "create",
+          "description": "Add the uploaded image file as a static asset so it is served by the frontend build at /assets/im2-3.jpg."
+        },
+        {
+          "path": "frontend/public/assets/im1-4.jpg",
+          "operation": "create",
+          "description": "Add the uploaded image file as a static asset so it is served by the frontend build at /assets/im1-4.jpg."
+        },
+        {
+          "path": "frontend/public/assets/im2-4.jpg",
+          "operation": "create",
+          "description": "Add the uploaded image file as a static asset so it is served by the frontend build at /assets/im2-4.jpg."
+        },
+        {
+          "path": "frontend/public/assets/im1-5.jpg",
+          "operation": "create",
+          "description": "Add the uploaded image file as a static asset so it is served by the frontend build at /assets/im1-5.jpg."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Replace Pride Moments carousel image sources with the 5 uploaded asset URLs and keep meaningful English alt text.",
+      "acceptanceCriteria": [
+        "frontend/src/content/prideMoments.ts references exactly the 5 uploaded image filenames (im1-3.jpg, im2-3.jpg, im1-4.jpg, im2-4.jpg, im1-5.jpg) in the Pride Moments event images array.",
+        "The Pride Moments section carousel displays 5 distinct slides corresponding to the 5 uploaded images."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/content/prideMoments.ts",
           "operation": "modify",
-          "description": "Update only the targeted <img> src (currently pointing at /assets/image.png) to point at /assets/dr-banner.jpg; do not change the alt text, Tailwind classes, or surrounding markup/layout."
+          "description": "Update the Pride Moments event images array to reference exactly: /assets/im1-3.jpg, /assets/im2-3.jpg, /assets/im1-4.jpg, /assets/im2-4.jpg, /assets/im1-5.jpg, and set meaningful English alt text for each image (without changing other Pride Moments text beyond what’s needed for src/alt)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Ensure the Pride Moments carousel remains fully manual with working prev/next and indicator navigation across all images.",
+      "acceptanceCriteria": [
+        "Carousel does not automatically change slides over time or based on visibility.",
+        "Clicking Next cycles through all 5 images and wraps from the last image back to the first.",
+        "Clicking Previous cycles through all 5 images and wraps from the first image to the last.",
+        "Clicking an indicator dot navigates to the corresponding image index.",
+        "When there is more than one image, navigation controls (previous/next + indicators) are visible and functional."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/home/PrideMomentsCarousel.tsx",
+          "operation": "modify",
+          "description": "Harden the manual carousel behavior: ensure there is no timer/auto-advance logic, keep prev/next wrap-around, keep indicators enabled, and add safeguards so currentIndex stays within bounds when the images array changes (e.g., reset/clamp index). Do not edit any files under frontend/src/components/ui."
         }
       ]
     }

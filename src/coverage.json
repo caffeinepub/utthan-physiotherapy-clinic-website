@@ -1,26 +1,47 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-18T06:04:44.385Z",
+  "generatedAt": "2026-02-18T07:45:58.517Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
+    "total": 3,
     "implemented": 1,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Replace the existing image used by the <img> element whose alt text is exactly \"Dr. Roshani Mansuriya - Utthan Physiotherapy Clinic\" with the uploaded file dr-banner.jpg, keeping the same placement and existing CSS/layout.",
+        "summary": "Add the 5 user-uploaded images (im1-3.jpg, im2-3.jpg, im1-4.jpg, im2-4.jpg, im1-5.jpg) to the frontend static assets so they can be referenced by the Pride Moments carousel.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/public/assets/im1-3.jpg",
+          "frontend/public/assets/im2-3.jpg",
+          "frontend/public/assets/im1-4.jpg",
+          "frontend/public/assets/im2-4.jpg",
+          "frontend/public/assets/im1-5.jpg"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Update Pride Moments content to use the uploaded images in the carousel by replacing the existing Pride Moments event image sources with /assets/im1-3.jpg, /assets/im2-3.jpg, /assets/im1-4.jpg, /assets/im2-4.jpg, and /assets/im1-5.jpg (keeping meaningful English alt text for each image).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/dr-banner.jpg",
-          "frontend/src/components/home/WhoWeAreSection.tsx"
+          "frontend/src/content/prideMoments.ts"
         ],
         "matchedFiles": [
-          "frontend/src/components/home/WhoWeAreSection.tsx"
+          "frontend/src/content/prideMoments.ts"
         ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Ensure the Pride Moments carousel remains fully manual (no auto-advance) and users can navigate through all provided images using previous/next buttons and indicators.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/components/home/PrideMomentsCarousel.tsx"
+        ],
+        "matchedFiles": []
       }
     ]
   },
@@ -29,7 +50,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/home/WhoWeAreSection.tsx",
+    "frontend/src/content/prideMoments.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

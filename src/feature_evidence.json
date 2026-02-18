@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-replace-the-existing-image-used-by-the-img-element-whose-alt-text-is-exactly-dr-roshani-mansuriya-utthan-physiotherapy-clinic-with-the-uploaded-file-dr-banner-jpg-keeping-the-same-placement-and-existing-css-layout",
-      "featureTitle": "Replace the existing image used by the <img> element whose alt text is exactly \"Dr. Roshani Mansuriya - Utthan Physiotherapy Clinic\" with the uploaded file dr-banner.jpg, keeping the same placement and existing CSS/layout.",
+      "featureId": "feature-update-pride-moments-content-to-use-the-uploaded-images-in-the-carousel-by-replacing-the-existing-pride-moments-event-image-sources-with-assets-im1-3-jpg-assets-im2-3-jpg-assets-im1-4-jpg-assets-im2-4-jpg-and-assets-im1-5-jpg-keeping-meaningful-english-alt-text-for-each-image",
+      "featureTitle": "Update Pride Moments content to use the uploaded images in the carousel by replacing the existing Pride Moments event image sources with /assets/im1-3.jpg, /assets/im2-3.jpg, /assets/im1-4.jpg, /assets/im2-4.jpg, and /assets/im1-5.jpg (keeping meaningful English alt text for each image).",
       "files": [
-        "frontend/src/components/home/WhoWeAreSection.tsx"
+        "frontend/src/content/prideMoments.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,7 +15,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-1"
+        "REQ-2"
       ],
       "confidence": "high"
     }

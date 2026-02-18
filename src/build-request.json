@@ -1,34 +1,74 @@
 {
   "kind": "build_request",
-  "title": "Replace Who We Are section image with uploaded dr-banner.jpg",
-  "projectName": "Utthan Clinic",
+  "title": "Use uploaded images in Pride Moments carousel",
+  "projectName": "Utthan Clinic Site",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Replace the existing image used by the <img> element whose alt text is exactly \"Dr. Roshani Mansuriya - Utthan Physiotherapy Clinic\" with the uploaded file dr-banner.jpg, keeping the same placement and existing CSS/layout.",
+      "text": "Add the 5 user-uploaded images (im1-3.jpg, im2-3.jpg, im1-4.jpg, im2-4.jpg, im1-5.jpg) to the frontend static assets so they can be referenced by the Pride Moments carousel.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "recent-msg-user-1"
         ],
         "quotes": [
-          "1 - where the  alt=\"Dr. Roshani Mansuriya - Utthan Physiotherapy Clinic\"\n2 - replcae the image \n3 - just add the image everythig will be taken care by the exisitng css"
+          "use this images in carousel"
         ]
       },
       "acceptanceCriteria": [
-        "The image rendered by the <img> with alt=\"Dr. Roshani Mansuriya - Utthan Physiotherapy Clinic\" (in frontend/src/components/home/WhoWeAreSection.tsx) displays dr-banner.jpg instead of the previous asset.",
-        "No Tailwind classes, layout structure, or surrounding markup are changed (CSS behavior remains as-is).",
-        "The <img> alt text remains unchanged."
+        "The files im1-3.jpg, im2-3.jpg, im1-4.jpg, im2-4.jpg, and im1-5.jpg exist in the built frontend as static assets (e.g., under frontend/public/assets/).",
+        "All 5 images can be loaded directly via their asset URLs in the browser without 404 errors."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Update Pride Moments content to use the uploaded images in the carousel by replacing the existing Pride Moments event image sources with /assets/im1-3.jpg, /assets/im2-3.jpg, /assets/im1-4.jpg, /assets/im2-4.jpg, and /assets/im1-5.jpg (keeping meaningful English alt text for each image).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-msg-user-1"
+        ],
+        "quotes": [
+          "use this images in carousel"
+        ]
+      },
+      "acceptanceCriteria": [
+        "frontend/src/content/prideMoments.ts references exactly the 5 uploaded image filenames (im1-3.jpg, im2-3.jpg, im1-4.jpg, im2-4.jpg, im1-5.jpg) in the Pride Moments event images array.",
+        "The Pride Moments section carousel displays 5 distinct slides corresponding to the 5 uploaded images."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Ensure the Pride Moments carousel remains fully manual (no auto-advance) and users can navigate through all provided images using previous/next buttons and indicators.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-msg-user-1",
+          "recent-msg-user-2"
+        ],
+        "quotes": [
+          "2 - no, it should be manual",
+          "3 - yes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Carousel does not automatically change slides over time or based on visibility.",
+        "Clicking Next cycles through all 5 images and wraps from the last image back to the first.",
+        "Clicking Previous cycles through all 5 images and wraps from the first image to the last.",
+        "Clicking an indicator dot navigates to the corresponding image index.",
+        "When there is more than one image, navigation controls (previous/next + indicators) are visible and functional."
       ]
     }
   ],
   "constraints": [
-    "Do not modify existing CSS/classes/layout; only swap the image asset or its reference for the targeted <img> element."
+    "Do not edit files under frontend/src/components/ui or any other frontend immutable paths listed in SYSTEM_CONTEXT.",
+    "Do not add any backend dependency or backend logic for serving carousel images; images must be served as frontend static assets."
   ],
   "nonGoals": [
-    "Changing any other images on the site (e.g., Home hero image, About page story image).",
-    "Introducing new styling, responsive behavior, or layout changes."
+    "Adding autoplay to the carousel.",
+    "Changing Pride Moments section text content (title/subtitle/description/details) beyond what is necessary to update image sources and alt text.",
+    "Implementing image upload functionality inside the app UI."
   ],
   "imageRequirements": {
     "required": [],

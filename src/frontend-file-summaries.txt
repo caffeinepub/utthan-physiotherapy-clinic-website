@@ -37,6 +37,11 @@
   "frontend/public/assets/logo.svg": "SVG logo asset with Utthan brand mark (person in upward stretch position) and text lockup, using currentColor for themeable rendering via CSS mask technique.",
   "frontend/public/assets/image-1.png": "Clinic interior photo showing treatment facility with physiotherapy equipment and treatment beds.",
   "frontend/index.html": "HTML entry point with favicon link added to the head section for proper browser tab icon display.",
-  "frontend/src/content/prideMoments.ts": "Static content module containing Pride Moments section data including title, subtitle, description, and array of 5 photos with captions and alt text for accessibility.",
-  "frontend/src/components/home/PrideMomentsSection.tsx": "Pride Moments section component that renders a responsive grid gallery of clinic milestone photos using Card components with hover effects and proper image aspect ratios."
+  "frontend/src/content/prideMoments.ts": "Static content module containing Pride Moments events with details text and image arrays; updated to use the five newly uploaded images (im1-3.jpg, im2-3.jpg, im1-4.jpg, im2-4.jpg, im1-5.jpg) from /assets/ directory with meaningful English alt text for each image.",
+  "frontend/src/components/home/PrideMomentsSection.tsx": "Pride Moments section component that renders each event as a card with details text and an image carousel in a two-column responsive layout; removed the keyboard navigation hint text.",
+  "frontend/src/components/home/PrideMomentsCarousel.tsx": "Manual-only carousel component with previous/next buttons, clickable dot indicators, and keyboard arrow key navigation; all autoplay and IntersectionObserver logic removed for fully manual control.",
+  "frontend/public/assets/pride-moments/2024-08-05-maa-bap-nu-ghar/im1.jpg": "Group photo from the Maa Bap nu ghar physiotherapy camp showing team and residents celebrating.",
+  "frontend/public/assets/pride-moments/2024-08-05-maa-bap-nu-ghar/im2.jpg": "Photo of elderly residents during the awareness session at the old age home.",
+  "frontend/public/assets/pride-moments/2024-08-05-maa-bap-nu-ghar/im3.jpg": "Photo showing hands-on physiotherapy treatment being provided to elderly patients.",
+  "frontend/public/assets/pride-moments/2024-08-05-maa-bap-nu-ghar/im4.jpg": "Photo of an elderly man performing stretching exercises during the session."
 }

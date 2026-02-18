@@ -1,5 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { PRIDE_MOMENTS } from '@/content/prideMoments';
+import PrideMomentsCarousel from './PrideMomentsCarousel';
 
 export default function PrideMomentsSection() {
   return (
@@ -20,19 +21,20 @@ export default function PrideMomentsSection() {
           </p>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {PRIDE_MOMENTS.photos.map((photo) => (
-            <Card key={photo.id} className="group overflow-hidden border-2 bg-card transition-all hover:border-secondary/50 hover:shadow-xl">
-              <CardContent className="p-0">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-primary">{photo.caption}</h3>
+        <div className="space-y-12">
+          {PRIDE_MOMENTS.events.map((event) => (
+            <Card key={event.id} className="overflow-hidden border-2 bg-card shadow-lg">
+              <CardContent className="p-6 lg:p-8">
+                <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+                  <div className="flex flex-col justify-center">
+                    <h3 className="mb-4 text-xl font-semibold leading-relaxed text-primary lg:text-2xl">
+                      {event.details}
+                    </h3>
+                  </div>
+                  
+                  <div>
+                    <PrideMomentsCarousel images={event.images} />
+                  </div>
                 </div>
               </CardContent>
             </Card>
